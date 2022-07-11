@@ -5,7 +5,7 @@
 
 <div class="container">
     <h2 class="my-3">Добавити заявку</h2>
-    <form method="post" action="modules/add_order.php">
+    <form method="post" action="modules/add_order.php" enctype="multipart/form-data">
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
@@ -14,7 +14,8 @@
             <div class="col-sm">
                 <div>
                     <label for="formFile" class="form-label">Фото</label>
-                    <input class="form-control" type="file" id="formFile" name="pict_src">
+                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
+<!--                    <input class="form-control" type="file" id="formFile" name="pict_src">-->
                 </div>
             </div>
         </div>
@@ -70,6 +71,14 @@
         </div>
     </form>
 </div>
+
+<form action="modules/pic_upload.php" method="post"
+      enctype="multipart/form-data">
+    Выберите изображение для загрузки:
+    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
+<!--    <input type="file" name="fileToUpload" id="fileToUpload">-->
+    <input type="submit" value="Загрузить изображение" name="submit">
+</form>
 
 
 
