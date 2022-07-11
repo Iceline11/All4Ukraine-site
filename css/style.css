@@ -1,0 +1,99 @@
+html {
+    font-size: 16px;
+}
+
+.order_card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+}
+
+.order_subscr {
+}
+
+.order_subscr .order_date {
+    display: flex;
+    justify-content: start;
+    color: grey;
+}
+
+.order_subscr .order_date i {
+    padding-top: 1px;
+}
+
+.order_subscr .order_date p {
+    margin-left: 5px;
+    font-size: 0.9rem;
+}
+
+.order_picture {
+    height: 300px;
+    margin: 2rem;
+    border-radius: 10px;
+}
+
+.order_donations {
+    display: flex;
+    align-items: center;
+}
+
+.order_collect_text {
+    font-weight: bold;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.order_collect_edit {
+    color: #0d6efd;
+    margin-left: 0.5rem;
+}
+
+.order_collect_edit:hover {
+    color: blue;
+}
+
+.order_quant {
+    margin-left: auto;
+}
+
+.order_quant_text {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.order_subscr .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.order_goal_text {
+    font-weight: bold;
+    color: green;
+    font-size: 1.5rem;
+}
+
+.order_goal_edit {
+    color: #0d6efd;
+    margin-left: 0.5rem;
+    margin-right: auto;
+}
+
+.order_goal_edit:hover {
+    color: blue;
+}
+
+.order_subscr .buttons.read_more {
+
+}
+
+.order_subscr .buttons .donate {
+    margin-left: 1rem;
+}
+
+.admin_buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
