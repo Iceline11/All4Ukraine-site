@@ -1,7 +1,19 @@
 <?php
-    include 'view/header.php'; // add header
-    include 'view/menu.php'; // add menu
+include '../view/header.php'; // add header
+include '../view/menu.php'; // add menu
+include "dbconnect.php";
+$order_id = $_GET['id'];
+$sql_order_edit = "SELECT * FROM `orders` WHERE order_id = $order_id"
+
+
+
+$sql_order_edit = $pdo->query('SELECT * FROM `orders` WHERE order_id = $order_id ') -> fetchAll(PDO::FETCH_COLUMN);
+$edit_id = $pdo->prepare($sql_order_edit);
+$edit_id -> execute([':getid' => $order_id]) -> fetchAll(PDO::FETCH_COLUMN);
+print_r($edit_id);
 ?>
+
+
 
 <div class="container">
     <h2 class="my-3">Добавити заявку</h2>
@@ -15,7 +27,7 @@
                 <div>
                     <label for="formFile" class="form-label">Фото</label>
                     <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
-<!--                    <input class="form-control" type="file" id="formFile" name="pict_src">-->
+                    <!--                    <input class="form-control" type="file" id="formFile" name="pict_src">-->
                 </div>
             </div>
         </div>
@@ -74,5 +86,5 @@
 
 
 <?php
-    include 'view/footer.php'; // add footer
+include '../view/footer.php'; // add footer
 ?>

@@ -51,6 +51,6 @@ $sql_new_order = "INSERT INTO `orders` (
                       NULL)";
 $count = $pdo->query($sql_new_order);
 
-echo "Заявка успішно додана";
+echo "<br> Заявка успішно додана";
 
 include '../view/footer.php'; // add footer
