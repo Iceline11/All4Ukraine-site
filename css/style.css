@@ -13,7 +13,13 @@ html {
 .order_subscr {
 }
 
-.order_subscr .order_date {
+.order_date {
+    display: flex;
+    justify-content: start;
+    color: grey;
+}
+
+.order_date_view {
     display: flex;
     justify-content: start;
     color: grey;
@@ -107,3 +113,30 @@ html {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
+.info_success {
+    position: absolute;
+    right:5%;
+}
+
+.orders_numbers {
+    display: flex;
+    align-items: center;
+}
+
+.order_collect_text_view {
+    font-weight: bold;
+    color: red;
+    font-size: 1.5rem;
+}
+
+.order_goal_view {
+    margin-left: auto;
+}
+
+.order_goal_text_view {
+    font-weight: bold;
+    color: green;
+    font-size: 1.5rem;
+}
+

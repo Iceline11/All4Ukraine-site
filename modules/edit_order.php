@@ -1,90 +1,54 @@
 <?php
+
 include '../view/header.php'; // add header
 include '../view/menu.php'; // add menu
+
 include "dbconnect.php";
-$order_id = $_GET['id'];
-$sql_order_edit = "SELECT * FROM `orders` WHERE order_id = $order_id"
+
+// recive POST dates
+$id = $_POST['id'];
+$name_ua = htmlspecialchars($_POST['name_ua']);
+$name_en = htmlspecialchars($_POST['name_en']);
+$name_sk = htmlspecialchars($_POST['name_sk']);
+$date = htmlspecialchars($_POST['date']);
+$goal = htmlspecialchars($_POST['goal']);
+$start_sum = htmlspecialchars($_POST['start_sum']);
+$donat_amount = htmlspecialchars($_POST['donat_amount']);
+$descr_ua = htmlspecialchars($_POST['descr_ua']);
+$descr_en = htmlspecialchars($_POST['descr_en']);
+$descr_ck = htmlspecialchars($_POST['descr_ck']);
 
 
+// if we have new picture
+if($_FILES["fileToUpload"]["name"] !== "") {
 
-$sql_order_edit = $pdo->query('SELECT * FROM `orders` WHERE order_id = $order_id ') -> fetchAll(PDO::FETCH_COLUMN);
-$edit_id = $pdo->prepare($sql_order_edit);
-$edit_id -> execute([':getid' => $order_id]) -> fetchAll(PDO::FETCH_COLUMN);
-print_r($edit_id);
-?>
+    include "pic_upload.php";
+    $new_picture = basename($_FILES["fileToUpload"]["name"]);
+    $pict_src = "`pict_src` = '$new_picture', ";
+}
+else {
+    $pict_src = NULL;
+}
 
+//insert into DB
+$sql_edit_order = "UPDATE `orders` SET
+                      `name_ua` = '$name_ua', 
+                      `name_en` = '$name_en',
+                      `name_sk` = '$name_sk', 
+                      `date` = '$date',
+                      `goal` = '$goal', 
+                      `start_sum` = '$start_sum',
+                      `donat_amount` = '$donat_amount', 
+                    " . $pict_src . "
+                      `descr_ua` = '$descr_ua', 
+                      `descr_en` = '$descr_en', 
+                      `descr_ck` = '$descr_ck', 
+                      `status` = '1', 
+                      `card_order` = NULL
+                WHERE `orders`.`order_id` = '$id'";
 
+$count = $pdo->query($sql_edit_order);
 
-<div class="container">
-    <h2 class="my-3">Добавити заявку</h2>
-    <form method="post" action="modules/add_order.php" enctype="multipart/form-data">
-        <div class="row g-3 mt-1">
-            <div class="col-sm-8">
-                <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
-                <input type="text" class="form-control" placeholder="Назва" aria-label="order_name" name="name_ua">
-            </div>
-            <div class="col-sm">
-                <div>
-                    <label for="formFile" class="form-label">Фото</label>
-                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
-                    <!--                    <input class="form-control" type="file" id="formFile" name="pict_src">-->
-                </div>
-            </div>
-        </div>
-        <div class="row g-3 mt-1">
-            <div class="col-sm-8">
-                <label for="exampleFormControlTextarea1" class="form-label">Назва (eng)</label>
-                <input type="text" class="form-control" placeholder="Назва" aria-label="order_name" name="name_en">
-            </div>
-            <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Ціль по зборам</label>
-                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="goal">
-            </div>
-            <div class="col-sm-2">
-                <label for="formFile" class="form-label">Дата:</label>
-                <input type="date" class="form-control" name="date">
-            </div>
-        </div>
-        <div class="row g-3 mt-1">
-            <div class="col-sm-8">
-                <label for="exampleFormControlTextarea1" class="form-label">Назва (sk)</label>
-                <input type="text" class="form-control" placeholder="Назва" aria-label="order_name" name="name_sk">
-            </div>
-            <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Наявна сума на початок</label>
-                <input type="text" class="form-control" placeholder="грн." aria-label="order_goal" name="start_sum">
-            </div>
-            <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Кількість донатерів</label>
-                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="donat_amount">
-            </div>
-        </div>
+echo "<br> Заявка успішно додана";
 
-        <div class="row g-3 mt-1">
-            <div>
-                <label for="exampleFormControlTextarea1" class="form-label">Опис (укр)</label>
-                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ua">
-            </div>
-        </div>
-        <div class="row g-3 mt-1">
-            <div>
-                <label for="exampleFormControlTextarea1" class="form-label">Опис (eng)</label>
-                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_en">
-            </div>
-        </div>
-        <div class="row g-3 mt-1">
-            <div>
-                <label for="exampleFormControlTextarea1" class="form-label">Опис (sk)</label>
-                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ck">
-            </div>
-        </div>
-        <div class="row g-3 mt-1">
-            <button type="submit" class="btn btn-success" name="add">Добавити</button>
-        </div>
-    </form>
-</div>
-
-
-<?php
 include '../view/footer.php'; // add footer
-?>

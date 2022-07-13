@@ -9,7 +9,7 @@
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
-                <input type="text" class="form-control" placeholder="Назва" aria-label="order_name" name="name_ua">
+                <input type="text" class="form-control" aria-label="order_name" name="name_ua">
             </div>
             <div class="col-sm">
                 <div>
@@ -22,7 +22,7 @@
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (eng)</label>
-                <input type="text" class="form-control" placeholder="Назва" aria-label="order_name" name="name_en">
+                <input type="text" class="form-control" aria-label="order_name" name="name_en">
             </div>
             <div class="col-sm-2">
                 <label for="exampleFormControlTextarea1" class="form-label">Ціль по зборам</label>
@@ -30,13 +30,13 @@
             </div>
             <div class="col-sm-2">
                 <label for="formFile" class="form-label">Дата:</label>
-                <input type="date" class="form-control" name="date">
+                <input type="date" class="form-control" name="date" value="<?=date('Y-m-d');?>">
             </div>
         </div>
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (sk)</label>
-                <input type="text" class="form-control" placeholder="Назва" aria-label="order_name" name="name_sk">
+                <input type="text" class="form-control" aria-label="order_name" name="name_sk">
             </div>
             <div class="col-sm-2">
                 <label for="exampleFormControlTextarea1" class="form-label">Наявна сума на початок</label>
@@ -44,26 +44,26 @@
             </div>
             <div class="col-sm-2">
                 <label for="exampleFormControlTextarea1" class="form-label">Кількість донатерів</label>
-                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="donat_amount">
+                <input type="number" class="form-control" aria-label="order_goal" name="donat_amount">
             </div>
         </div>
 
         <div class="row g-3 mt-1">
             <div>
                 <label for="exampleFormControlTextarea1" class="form-label">Опис (укр)</label>
-                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ua">
+                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ua" rows="5"></textarea>
             </div>
         </div>
         <div class="row g-3 mt-1">
             <div>
                 <label for="exampleFormControlTextarea1" class="form-label">Опис (eng)</label>
-                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_en">
+                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_en" rows="5"></textarea>
             </div>
         </div>
         <div class="row g-3 mt-1">
             <div>
                 <label for="exampleFormControlTextarea1" class="form-label">Опис (sk)</label>
-                <input type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ck">
+                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ck" rows="5"></textarea>
             </div>
         </div>
         <div class="row g-3 mt-1">
