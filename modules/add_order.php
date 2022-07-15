@@ -18,6 +18,12 @@ $descr_ua = htmlspecialchars($_POST['descr_ua']);
 $descr_en = htmlspecialchars($_POST['descr_en']);
 $descr_ck = htmlspecialchars($_POST['descr_ck']);
 
+// Define max order
+$sql_max_order = $pdo->query('SELECT MAX(card_order) FROM orders');
+$order_res = $sql_max_order->fetch(PDO::FETCH_OBJ);
+$result_in_array =  (array) $order_res;
+$new_order = $result_in_array["MAX(card_order)"] + 1;
+
 //insert into DB
 $sql_new_order = "INSERT INTO `orders` (
                       `order_id`, 
@@ -48,7 +54,7 @@ $sql_new_order = "INSERT INTO `orders` (
                       '$descr_en', 
                       '$descr_ck', 
                       '1', 
-                      NULL)";
+                      '$new_order')";
 $count = $pdo->query($sql_new_order);
 
 echo "<br> Заявка успішно додана";

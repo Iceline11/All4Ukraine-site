@@ -8,6 +8,9 @@
     if($info == "success") {
         require_once 'view/info_success.php';
     }
+    elseif ($info == "first") {
+        require_once 'view/info_first.php';
+    }
 ?>
 
 <div class="container">
@@ -21,8 +24,12 @@
         </div>
         <div class="col-sm-8 order_subscr">
             <div class="admin_buttons">
-                <a type="button" href="edit_order.php?id=<?= $row->order_id ?>" class="btn btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a type="button" href="modules/delete_order.php?id=<?= $row->order_id ?>" class="btn btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
+                <a type="button" href="modules/move_up.php?id=<?= $row->order_id ?>" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-arrow-up"></i></a>
+                <a type="button" href="modules/move_down.php?id=<?= $row->order_id ?>" class="btn btn-sm btn-outline-info"><i class="fa-solid fa-arrow-down"></i></a>
+                <a type="button" href="edit_order.php?id=<?= $row->order_id ?>" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-circle-check"></i></a>
+                <a type="button" href="edit_order.php?id=<?= $row->order_id ?>" class="btn btn-sm btn-outline-warning"><i class="fa-solid fa-eye"></i></a>
+                <a type="button" href="edit_order.php?id=<?= $row->order_id ?>" class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a type="button" href="modules/delete_order.php?id=<?= $row->order_id ?>" class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
             </div>
             <div class="order_date">
                 <i class="fa-solid fa-calendar-days"></i><p><?= $row->date ?></p>

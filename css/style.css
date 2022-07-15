@@ -114,7 +114,7 @@ html {
     margin-bottom: 1.5rem;
 }
 
-.info_success {
+.info_on_top {
     position: absolute;
     right:5%;
 }
@@ -141,15 +141,28 @@ html {
 }
 
 .arrow-left {
-
+    font-size: 2rem;
+    color: #4d4d4d;
     position: absolute;
     left: -3rem;
     top: 4rem;
 }
 
+.arrow-left:hover {
+    font-size: 2.1rem;
+    color: blue;
+}
+
 .arrow-right {
+    font-size: 2rem;
+    color: #4d4d4d;
     position: absolute;
     right: -3rem;
     top: 4rem;
+}
+
+.arrow-right:hover {
+    font-size: 2.1rem;
+    color: blue;
 }
 

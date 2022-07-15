@@ -17,7 +17,6 @@ while ($row = $sql_order_edit->fetch(PDO::FETCH_OBJ)) {  ?>
 
     <div class="container">
         <div class="row mx-4 d-flex align-items-center">
-
             <div class="col-sm-12  position-relative">
                 <i class="arrow-left fa-solid fa-chevron-left"></i>
                 <i class="arrow-right fa-solid fa-chevron-right"></i>
