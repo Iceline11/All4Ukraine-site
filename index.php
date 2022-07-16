@@ -59,7 +59,7 @@
             <div class="buttons">
                 <span class="order_goal">Ціль:&nbsp;</span><span class="order_goal_text">₴ <?= $row->goal ?></span>
                 <a class="order_goal_edit"  data-bs-toggle="modal" data-bs-target="#modal_goal" data-id="<?= $row->order_id ?>" data-goal="<?= $row->goal ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href="view/view_order.php?id=<?= $row->order_id ?>" class="btn btn-primary read_more">Читати далі</a>
+                <a href="view/view_order.php?od=<?= $row->card_order ?>" class="btn btn-primary read_more">Читати далі</a>
                 <a href="#" class="btn btn-warning donate">Задонатити</a>
             </div>
         </div>
