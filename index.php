@@ -6,10 +6,13 @@
     // popups
     $info = isset($_GET['info']) ? $_GET['info'] : "";
     if($info == "success") {
-        require_once 'view/info_success.php';
+        require_once 'view/info_success.html';
     }
     elseif ($info == "first") {
-        require_once 'view/info_first.php';
+        require_once 'view/info_first.html';
+    }
+    elseif ($info == "last") {
+        require_once 'view/info_last.html';
     }
 ?>
 

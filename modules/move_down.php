@@ -8,16 +8,8 @@ $order_res = $sql_def_order->fetch(PDO::FETCH_ASSOC);
 $this_order =  $order_res["card_order"];
 $this_id =  $order_res["order_id"];
 
-// Define max order
-$sql_max_order = $pdo->query("SELECT MAX(card_order) FROM orders");
-$order_res = $sql_max_order->fetch(PDO::FETCH_ASSOC);
-$max_card = $order_res["MAX(card_order)"];
-echo $max_card;
-die();
-
-
 if ($this_order == 1) {
-    header('Location: ../index.php?info=first');
+    header('Location: ../index.php?info=last');
 }
 else {
     //move order to top with change previous order
