@@ -1,0 +1,308 @@
+[19-Jul-2022 11:07:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in /home/allukra1/test.all4ukraine.org/dbconnect/dbconnect.php:9
+Stack trace:
+#0 /home/allukra1/test.all4ukraine.org/dbconnect/dbconnect.php(9): PDO->__construct('mysql:host=loca...', 'root', 'root')
+#1 /home/allukra1/test.all4ukraine.org/modules/select_orders.php(2): include('/home/allukra1/...')
+#2 /home/allukra1/test.all4ukraine.org/index.php(4): include('/home/allukra1/...')
+#3 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/dbconnect/dbconnect.php on line 9
+[19-Jul-2022 11:58:54 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 11:58:54 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 11:58:54 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 12:45:30 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:45:30 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:45:30 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 12:45:59 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:45:59 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:45:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 12:46:42 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:46:42 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:46:42 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 12:46:52 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:46:52 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:46:52 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 12:47:16 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:47:16 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:47:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 12:47:39 UTC] PHP Warning:  include(modules/dbconnect.php): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:47:39 UTC] PHP Warning:  include(): Failed opening 'modules/dbconnect.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/allukra1/test.all4ukraine.org/recive.php on line 11
+[19-Jul-2022 12:47:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/allukra1/test.all4ukraine.org/recive.php:33
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 33
+[19-Jul-2022 18:44:11 UTC] PHP Warning:  Illegal string offset 'donater' in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[19-Jul-2022 18:44:33 UTC] PHP Warning:  Illegal string offset 'donater' in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[19-Jul-2022 18:45:08 UTC] PHP Warning:  Illegal string offset 'donater_name' in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[19-Jul-2022 18:47:35 UTC] PHP Warning:  Illegal string offset 'sum' in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[19-Jul-2022 18:48:58 UTC] PHP Warning:  Illegal string offset 'sum' in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[19-Jul-2022 18:51:17 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[19-Jul-2022 18:51:17 UTC] PHP Warning:  simplexml_load_string(): Array in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[19-Jul-2022 18:51:17 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[19-Jul-2022 18:54:50 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[19-Jul-2022 18:56:22 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[19-Jul-2022 18:57:28 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[19-Jul-2022 18:59:07 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[19-Jul-2022 19:03:58 UTC] PHP Warning:  implode(): Invalid arguments passed in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[20-Jul-2022 14:34:01 UTC] PHP Parse error:  syntax error, unexpected 'eqwewqdwq' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 14:34:02 UTC] PHP Parse error:  syntax error, unexpected 'eqwewqdwq' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 14:34:03 UTC] PHP Parse error:  syntax error, unexpected 'eqwewqdwq' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 14:39:38 UTC] PHP Parse error:  syntax error, unexpected 'value1' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 14:39:52 UTC] PHP Parse error:  syntax error, unexpected 'value1' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 14:50:32 UTC] PHP Warning:  Use of undefined constant payment - assumed 'payment' (this will throw an Error in a future version of PHP) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[20-Jul-2022 14:50:32 UTC] PHP Warning:  Illegal string offset 'payment' in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[20-Jul-2022 14:53:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function getElementsByTagName() on string in /home/allukra1/test.all4ukraine.org/recive.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[20-Jul-2022 14:54:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function getElementsByTagName() on string in /home/allukra1/test.all4ukraine.org/recive.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[20-Jul-2022 14:58:58 UTC] PHP Warning:  DOMDocument::load(): I/O warning : failed to load external entity &quot;/home/allukra1/test.all4ukraine.org/&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;payment id=&quot;156559911&quot;&gt;
+  &lt;ident&gt;0c34f1f10ef354bf44f22cf72b8d1c73a7409d8a&lt;/ident&gt;
+  &lt;status&gt;5&lt;/status&gt;
+  &lt;amount&gt;12300&lt;/amount&gt;
+  &lt;currency&gt;UAH&lt;/currency&gt;
+  &lt;timestamp&gt;1658258174&lt;/timestamp&gt;
+  &lt;transactions&gt;
+    &lt;transaction id=&quot;312124415&quot;&gt;
+      &lt;mch_id&gt;3815&lt;/mch_id&gt;
+      &lt;srv_id&gt;0&lt;/srv_id&gt;
+      &lt;amount&gt;12300&lt;/amount&gt;
+      &lt;currency&gt;UAH&lt;/currency&gt;
+      &lt;type&gt;20&lt;/type&gt;
+      &lt;status&gt;11&lt;/status&gt;
+      &lt;code&gt;00&lt;/code&gt;
+      &lt;desc&gt;weqweqwe&lt;/desc&gt;
+        &lt;info&gt;
+            &lt;order_id&gt;46&lt;/order_id&gt;
+            &lt;sum&gt;1000&lt;/sum&gt;
+            &lt;donater_name&gt;Vova&lt;/donater_name&gt;
+            &lt;method&gt;iPay&lt;/me in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 14:58:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function getElementsByTagName() on string in /home/allukra1/test.all4ukraine.org/recive.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 10
+[20-Jul-2022 15:04:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function objectsIntoArray() in /home/allukra1/test.all4ukraine.org/recive.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[20-Jul-2022 15:04:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function objectsIntoArray() in /home/allukra1/test.all4ukraine.org/recive.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[20-Jul-2022 15:04:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function objectsIntoArray() in /home/allukra1/test.all4ukraine.org/recive.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[20-Jul-2022 15:07:05 UTC] PHP Parse error:  syntax error, unexpected '@', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 08:03:22 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 08:03:22 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 08:03:22 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 08:06:16 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 08:06:16 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 08:06:16 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 09:42:54 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 09:42:54 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 09:42:54 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 09:55:03 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/allukra1/test.all4ukraine.org/recive.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 09:57:05 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 09:57:05 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 09:57:05 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 10:01:50 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 10:01:50 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 10:01:50 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 10:03:42 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 10:03:42 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 10:03:42 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 11:26:26 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 11:26:26 UTC] PHP Warning:  simplexml_load_string(): {&quot;query&quot;:&quot;\n    query IntrospectionQuery {\n      __schema {\n        queryType  in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 11:26:26 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 11:33:39 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 11:36:10 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 11:36:17 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 11:45:49 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 11:45:49 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 11:45:49 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:01:28 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:01:28 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:01:28 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:03:07 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:03:07 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:03:07 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:06:48 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:06:48 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:06:48 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:07:02 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:07:02 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:07:02 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:09:30 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:09:30 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:09:30 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:11:46 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 7
+[21-Jul-2022 12:11:46 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 7
+[21-Jul-2022 12:11:46 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 7
+[21-Jul-2022 12:12:18 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:18 UTC] PHP Warning:  simplexml_load_string(): xml=0 in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:18 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : ParsePI: PI xm0 space expected in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string(): &lt;?xm0 in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string():      ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : ParsePI: PI xm0 never end ... in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string(): &lt;?xm0 in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string():      ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string(): &lt;?xm0 in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:12:39 UTC] PHP Warning:  simplexml_load_string():      ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 12:15:19 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:15:19 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:15:19 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:15:54 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:15:54 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:15:54 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:20:32 UTC] PHP Warning:  SimpleXMLElement::__construct(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:32 UTC] PHP Warning:  SimpleXMLElement::__construct(): php://input in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:32 UTC] PHP Warning:  SimpleXMLElement::__construct(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:32 UTC] PHP Fatal error:  Uncaught Exception: String could not be parsed as XML in /home/allukra1/test.all4ukraine.org/recive.php:3
+Stack trace:
+#0 /home/allukra1/test.all4ukraine.org/recive.php(3): SimpleXMLElement->__construct('php://input')
+#1 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:57 UTC] PHP Warning:  SimpleXMLElement::__construct(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:57 UTC] PHP Warning:  SimpleXMLElement::__construct(): php://input in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:57 UTC] PHP Warning:  SimpleXMLElement::__construct(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:20:57 UTC] PHP Fatal error:  Uncaught Exception: String could not be parsed as XML in /home/allukra1/test.all4ukraine.org/recive.php:3
+Stack trace:
+#0 /home/allukra1/test.all4ukraine.org/recive.php(3): SimpleXMLElement->__construct('php://input')
+#1 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 12:21:44 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:21:44 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:21:44 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:24:15 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:24:15 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 12:24:15 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:33:34 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:33:34 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:33:34 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:38:35 UTC] PHP Warning:  file_get_contents(xml): failed to open stream: No such file or directory in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 17:39:10 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 15
+[21-Jul-2022 17:41:37 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:41:37 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:41:37 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:45:21 UTC] PHP Parse error:  syntax error, unexpected 'var_dump' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 17:54:31 UTC] PHP Warning:  simplexml_load_file(): I/O warning : failed to load external entity &quot;&quot; in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 17:54:57 UTC] PHP Warning:  simplexml_load_file(): php://input:1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 17:54:57 UTC] PHP Warning:  simplexml_load_file(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 17:54:57 UTC] PHP Warning:  simplexml_load_file(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 17:54:59 UTC] PHP Warning:  simplexml_load_file(): php://input:1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 17:54:59 UTC] PHP Warning:  simplexml_load_file(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 17:54:59 UTC] PHP Warning:  simplexml_load_file(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 2
+[21-Jul-2022 19:44:16 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 16
+[21-Jul-2022 19:45:09 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 16
+[21-Jul-2022 19:45:12 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 16
+[21-Jul-2022 19:46:57 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 16
+[21-Jul-2022 19:49:31 UTC] PHP Fatal error:  Uncaught Error: Object of class stdClass could not be converted to string in /home/allukra1/test.all4ukraine.org/recive.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/allukra1/test.all4ukraine.org/recive.php on line 16
+[21-Jul-2022 20:13:03 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:15:23 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:16:18 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:17:41 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:19:46 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:20:24 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:20:24 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:20:24 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:20:25 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:24:47 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:25:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:25:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:25:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:25:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:25:26 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:26:02 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:27:15 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:27:46 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:30:21 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:30:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:30:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:30:22 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:30:23 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:30:23 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:31:59 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:32:03 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:32:04 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:32:33 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:32:39 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:33:15 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:33:47 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:34:37 UTC] PHP Parse error:  syntax error, unexpected 'var_dump' (T_STRING) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:34:49 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:34:59 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:03 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:03 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:03 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:03 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:04 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:04 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 6
+[21-Jul-2022 20:35:53 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 8
+[21-Jul-2022 20:38:24 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:38:26 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:38:27 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:38:38 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:39:21 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:39:23 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:39:24 UTC] PHP Parse error:  syntax error, unexpected '$xmlObj' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 4
+[21-Jul-2022 20:42:09 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 20:42:09 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 20:42:09 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 20:42:28 UTC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in /home/allukra1/test.all4ukraine.org/recive.php on line 5
+[21-Jul-2022 20:42:49 UTC] PHP Warning:  simplexml_load_string(): Entity: line 1: parser error : Start tag expected, '&lt;' not found in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 20:42:49 UTC] PHP Warning:  simplexml_load_string(): xml=&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; in /home/allukra1/test.all4ukraine.org/recive.php on line 3
+[21-Jul-2022 20:42:49 UTC] PHP Warning:  simplexml_load_string(): ^ in /home/allukra1/test.all4ukraine.org/recive.php on line 3

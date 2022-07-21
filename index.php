@@ -28,13 +28,13 @@ if ($info == "success") {
             <?php }?>
         </div>
         <?php
-        while ($row = $sql_select_orders->fetch(PDO::FETCH_OBJ)) { // start while
+            while ($row = $sql_select_orders->fetch(PDO::FETCH_OBJ)) { // start while
 
             // sum on every order
             $sql_sum = $pdo->query("SELECT SUM(sum) FROM donate_list WHERE order_id = '$row->order_id'")->fetch(PDO::FETCH_ASSOC);
             $sum = $sql_sum["SUM(sum)"] + $row->start_sum;
 
-            ?>
+        ?>
             <div class="row order_card" <?=$status = ($row->status == 3) ? 'style="opacity:50%"' : '' ?>>
                 <div class="col-md-4 col-sm-3 img-container">
 
@@ -48,11 +48,11 @@ if ($info == "success") {
                             <a type="button" href="modules/move_down.php?id=<?= $row->order_id ?>"
                                class="btn btn-sm btn-outline-info"><i class="fa-solid fa-arrow-down"></i></a>
                             <a type="button" class="btn btn-sm btn-outline-success dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-eye"></i></a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="modules/change_status.php?id=<?= $row->order_id ?>&but=active">Активна</a></li>
-                                <li><a class="dropdown-item" href="modules/change_status.php?id=<?= $row->order_id ?>&but=succes">Успішно закрита</a></li>
-                                <li><a class="dropdown-item" href="modules/change_status.php?id=<?= $row->order_id ?>&but=hide">Неактивна (прихована)</a></li>
-                            </ul>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="modules/change_status.php?id=<?= $row->order_id ?>&but=active">Активна</a></li>
+                                    <li><a class="dropdown-item" href="modules/change_status.php?id=<?= $row->order_id ?>&but=succes">Успішно закрита</a></li>
+                                    <li><a class="dropdown-item" href="modules/change_status.php?id=<?= $row->order_id ?>&but=hide">Неактивна (прихована)</a></li>
+                                </ul>
                             <a type="button" href="edit_order.php?id=<?= $row->order_id ?>"
                                class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a type="button" href="modules/delete_order.php?id=<?= $row->order_id ?>"
