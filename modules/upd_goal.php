@@ -1,6 +1,6 @@
 <?php
 
-include "dbconnect.php";
+include "../dbconnect/dbconnect.php";
 
 // recive POST dates
 $id = htmlspecialchars($_POST['id']);

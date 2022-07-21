@@ -3,7 +3,7 @@
 include '../view/header.php'; // add header
 include '../view/menu.php'; // add menu
 
-include "dbconnect.php";
+include "../dbconnect/dbconnect.php";
 
 // recive POST dates
 $id = $_POST['id'];

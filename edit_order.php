@@ -1,7 +1,7 @@
 <?php
 include 'view/header.php'; // add header
 include 'view/menu.php'; // add menu
-include "modules/dbconnect.php";
+include "dbconnect/dbconnect.php";
 $order_id = $_GET['id'];
 $sql_order_edit = "SELECT * FROM `orders` WHERE order_id = '$order_id'";
 
@@ -10,7 +10,6 @@ while ($row = $sql_order_edit->fetch())
 {
 
 ?>
-
 
 
 <div class="container">

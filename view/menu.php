@@ -7,24 +7,23 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/All4Ukraine-site/index.php">Добрі справи</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">Добрі справи</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Звіти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?isadmin=true">(admin)</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Link
+                        Мова, валюта
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">UA, грн.</a></li>
+                        <li><a class="dropdown-item" href="#">EN, UDS</a></li>
+                        <li><a class="dropdown-item" href="#">CK, EUR</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
                 </li>
             </ul>
             <form class="d-flex">
