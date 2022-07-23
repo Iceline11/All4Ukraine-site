@@ -1,7 +1,7 @@
 <?php
-include 'view/header.php'; // add header
-include 'view/menu.php'; // add menu
-include "dbconnect/dbconnect.php";
+include 'header.php'; // add header
+include 'menu.php'; // add menu
+include "../dbconnect/dbconnect.php";
 $order_id = $_GET['id'];
 $sql_order_edit = "SELECT * FROM `orders` WHERE order_id = '$order_id'";
 
@@ -14,10 +14,10 @@ while ($row = $sql_order_edit->fetch())
 
 <div class="container">
     <h2 class="my-3">Редагувати заявку</h2>
-    <form method="post" action="modules/edit_order.php" enctype="multipart/form-data">
+    <form method="post" action="../modules/edit_order.php" enctype="multipart/form-data">
         <div class="row g-3 mt-1">
             <div class="col-sm-3">
-                <img style="width: 90%" src="uploads/<?=$row['pict_src']?>">
+                <img style="width: 90%" src="../uploads/<?=$row['pict_src']?>">
             </div>
             <div class="col-sm-9">
                 <div class="row">
@@ -88,5 +88,5 @@ while ($row = $sql_order_edit->fetch())
 
 <?php
 };
-include 'view/footer.php'; // add footer
+include 'footer.php'; // add footer
 ?>

@@ -1,9 +1,8 @@
 <?php
-$string = file_get_contents('php://input'); //получили данные
-$xml = str_replace('xml=', '', $string);
-$xmlObj = simplexml_load_string($xml); //распарсили
-
-$res = json_decode($xmlObj->transactions->transaction->info);
+$string = file_get_contents('php://input'); //catch data
+$xml = str_replace('xml=', '', $string); // delete xml=
+$xmlObj = simplexml_load_string($xml); //convert to string
+$res = json_decode($xmlObj->transactions->transaction->info); // catch info
 
 $order_id = $res->order_id;
 $sum = $res->sum;

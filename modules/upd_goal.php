@@ -13,4 +13,4 @@ $sql_update_goal = "UPDATE `orders` SET
 
 $count = $pdo->query($sql_update_goal);
 
-header('Location: ../index.php?info=success');
+header('Location: ../view/order_list.php?isadmin=true');

@@ -15,6 +15,7 @@ html {
         margin: 0rem 1rem;
     }
 }
+
 .order_subscr {
 }
 
@@ -35,6 +36,12 @@ html {
     color: grey;
 }
 
+@media screen and (max-width: 992px) {
+    .order_subscr {
+        margin-top: 1rem;
+    }
+}
+
 .order_subscr .order_date i {
     padding-top: 1px;
 }
@@ -45,7 +52,7 @@ html {
 }
 
 .order_picture {
-    width: 90%;
+    width: 100%;
     border-radius: 10px;
 }
 
@@ -101,7 +108,7 @@ html {
 }
 
 .order_subscr .buttons .donate {
-    margin-left: 1rem;
+
 }
 
 .admin_buttons {
@@ -110,9 +117,22 @@ html {
     top: 0;
 }
 
-.buttons {
-    display: flex;
+.row_bottom {
     align-items: center;
+    margin-top: 1rem;
+}
+
+.donate_rearmore {
+    margin-top: 0rem;
+}
+
+@media screen and (max-width: 991px) {
+    .row_bottom {
+        margin-top: 0rem;
+    }
+    .donate_rearmore {
+        margin-top: 1rem;
+    }
 }
 
 .separator {
@@ -165,6 +185,15 @@ html {
     position: absolute;
     right: -3rem;
     top: 4rem;
+}
+
+@media screen and (max-width: 574px) {
+    .arrow-left {
+        left: -1.5rem;
+    }
+    .arrow-right {
+        right: -1.5rem;
+    }
 }
 
 .arrow-right:hover {

@@ -1,11 +1,11 @@
 <?php
-    include 'view/header.php'; // add header
-    include 'view/menu.php'; // add menu
+    include 'header.php'; // add header
+    include 'menu.php'; // add menu
 ?>
 
 <div class="container">
     <h2 class="my-3">Добавити заявку</h2>
-    <form method="post" action="modules/add_order.php" enctype="multipart/form-data">
+    <form method="post" action="../modules/add_order.php" enctype="multipart/form-data">
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
@@ -74,5 +74,5 @@
 
 
 <?php
-    include 'view/footer.php'; // add footer
+    include 'footer.php'; // add footer
 ?>

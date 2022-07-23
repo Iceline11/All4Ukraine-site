@@ -5,6 +5,12 @@ include '../view/menu.php'; // add menu
 
 include "../dbconnect/dbconnect.php";
 
+// Define max order
+$sql_max_order = $pdo->query('SELECT MAX(card_order) FROM orders');
+$order_res = $sql_max_order->fetch(PDO::FETCH_OBJ);
+$result_in_array =  (array) $order_res;
+$new_order = $result_in_array["MAX(card_order)"] + 1;
+
 // recive POST dates
 $id = $_POST['id'];
 $name_ua = htmlspecialchars($_POST['name_ua']);
@@ -44,7 +50,7 @@ $sql_edit_order = "UPDATE `orders` SET
                       `descr_en` = '$descr_en', 
                       `descr_ck` = '$descr_ck', 
                       `status` = '1', 
-                      `card_order` = NULL
+                      `card_order` = '$new_order'
                 WHERE `orders`.`order_id` = '$id'";
 
 $count = $pdo->query($sql_edit_order);

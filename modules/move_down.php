@@ -19,5 +19,5 @@ else {
     UPDATE orders SET card_order = card_order - 1 WHERE order_id = $this_id
                                         ");
 
-    header('Location: ../index.php');
+    header('Location: ../view/order_list.php?isadmin=true');
 }

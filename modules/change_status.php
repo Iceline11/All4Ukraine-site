@@ -34,4 +34,4 @@ elseif ($button == "hide") {
     $update->status_hide();
 }
 
-header('Location: ../index.php?isadmin=true');
+header('Location: ../view/order_list.php?isadmin=true');

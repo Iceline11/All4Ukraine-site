@@ -45,10 +45,15 @@ elseif ($info == "bad") {
                  if ($res_edit->card_order > 1 )
                     echo
                     '<a href="view_order.php?od=' . $prev . '"><i class="arrow-right fa-solid fa-chevron-right"></i></a>';
-
+                 if ($res_edit->card_order === $max_card )
+                     echo
+                         '<a href="view_order.php?od=1"><i class="arrow-left fa-solid fa-chevron-left"></i></a>';
                 if ($res_edit->card_order < $max_card)
                     echo
                         '<a href="view_order.php?od=' . $next . '"><i class="arrow-left fa-solid fa-chevron-left"></i></a>';
+                if ($res_edit->card_order == 1 )
+                    echo
+                    '<a href="view_order.php?od=' . $max_card . '"><i class="arrow-right fa-solid fa-chevron-right"></i></a>';
                 ?>
                 <h2 class="mt-4"><?= $res_edit->name_ua ?></h2>
                 <p class="mb-4">Дата отримання заявки: <?= $res_edit->date ?></p>
@@ -66,7 +71,7 @@ elseif ($info == "bad") {
         </div>
         <div class="row mx-4">
             <div class="col-sm-5 d-flex">
-                <img class="align-self-center rounded" style="width: 90%" src="../uploads/<?= $res_edit->pict_src ?>">
+                <img class="align-self-center rounded" style="width: 100%" src="../uploads/<?= $res_edit->pict_src ?>">
             </div>
             <div class="col-sm-7 align-self-center">
                 <p><?= $res_edit->descr_ua ?></p>

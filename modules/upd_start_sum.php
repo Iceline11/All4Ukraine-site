@@ -1,6 +1,6 @@
 <?php
 
-include "dbconnect.php";
+include "../dbconnect/dbconnect.php";
 
 // recive POST dates
 $id = htmlspecialchars($_POST['id']);
@@ -13,4 +13,4 @@ $sql_update_amount = "UPDATE `orders` SET
 
 $count = $pdo->query($sql_update_amount);
 
-header('Location: ../index.php?info=success');
+header('Location: ../view/order_list.php?isadmin=true');
