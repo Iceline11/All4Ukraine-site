@@ -202,5 +202,16 @@ html {
 }
 
 .donater-table {
-    margin: 3rem 0;
+
+}
+
+.btn-history-replace {
+    position: absolute;
+    right: 9.5rem;
+}
+
+
+.btn-history-delete {
+    position: absolute;
+    right: 7rem;
 }

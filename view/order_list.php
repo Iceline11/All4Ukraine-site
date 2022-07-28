@@ -31,8 +31,9 @@ if ($info == "success") {
             while ($row = $sql_select_orders->fetch(PDO::FETCH_OBJ)) { // start while
 
             // sum on every order
-            $sql_sum = $pdo->query("SELECT SUM(sum) FROM donate_list WHERE order_id = '$row->order_id'")->fetch(PDO::FETCH_ASSOC);
-            $sum = $sql_sum["SUM(sum)"] + $row->start_sum;
+            $sql_sum = $pdo->query("SELECT SUM(sum) FROM donate_list WHERE order_id = '$row->order_id' AND transfer_id IS NULL")->fetch(PDO::FETCH_ASSOC);
+            $sql_sum_tranіfer = $pdo->query("SELECT SUM(sum) FROM donate_list WHERE transfer_id = '$row->order_id'")->fetch(PDO::FETCH_ASSOC);
+            $sum = $sql_sum["SUM(sum)"] + $sql_sum_tranіfer["SUM(sum)"] + $row->start_sum;
 
         ?>
             <div class="row order_card" <?=$status = ($row->status == 3) ? 'style="opacity:50%"' : '' ?>>
@@ -44,19 +45,19 @@ if ($info == "success") {
                     <?php if (isset($_GET['isadmin'])) {?>
                         <div class="admin_buttons">
                             <a type="button" href="../modules/move_up.php?id=<?= $row->order_id ?>"
-                               class="btn btn-sm btn-outline-info"><i class="fa-solid fa-arrow-up"></i></a>
+                               class="btn btn-sm btn-info"><i class="fa-solid fa-arrow-up"></i></a>
                             <a type="button" href="../modules/move_down.php?id=<?= $row->order_id ?>"
-                               class="btn btn-sm btn-outline-info"><i class="fa-solid fa-arrow-down"></i></a>
-                            <a type="button" class="btn btn-sm btn-outline-success dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-eye"></i></a>
+                               class="btn btn-sm btn-info"><i class="fa-solid fa-arrow-down"></i></a>
+                            <a type="button" class="btn btn-sm btn-success dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-eye"></i></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="../modules/change_status.php?id=<?= $row->order_id ?>&but=active">Активна</a></li>
                                     <li><a class="dropdown-item" href="../modules/change_status.php?id=<?= $row->order_id ?>&but=succes">Успішно закрита</a></li>
                                     <li><a class="dropdown-item" href="../modules/change_status.php?id=<?= $row->order_id ?>&but=hide">Неактивна (прихована)</a></li>
                                 </ul>
                             <a type="button" href="edit_order.php?id=<?= $row->order_id ?>"
-                               class="btn btn-sm btn-outline-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                               class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a type="button" href="../modules/delete_order.php?id=<?= $row->order_id ?>"
-                               class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash-can"></i></a>
+                               class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                         </div>
                     <?php }?>
                     <div class="order_date">
@@ -64,7 +65,7 @@ if ($info == "success") {
                         <p><?= $row->date ?></p>
                     </div>
                     <a class="order_link_nostyle" href="view_order.php?od=<?= $row->card_order ?>"><h4><?= $row->name_ua ?></h4></a>
-                    <p><?= mb_substr($row->descr_ua, 0, 400) . " " ?><a href="">(далі)</a></p>
+                    <p><?= mb_substr($row->descr_ua, 0, 400) . " " ?><a href="view_order.php?od=<?= $row->card_order ?>">(далі)</a></p>
                     <div class="order_donations">
                         <span class="order_collect">Зібрано:&nbsp;</span>
                         <?php if (isset($_GET['isadmin'])) {?>
@@ -73,7 +74,13 @@ if ($info == "success") {
                         <?php }?>
                         <span class="order_collect_text">₴ <?= $sum ?></span>
                         <span class="order_quant">Донатерів: &nbsp;</span><span
-                                class="order_quant_text"><?= $row->donat_amount ?></span>
+                                class="order_quant_text">
+                            <?php
+                            // Select quantity for each order
+                            $sql2 = $pdo->query("SELECT COUNT(*) FROM `donate_list` WHERE order_id = '$row->order_id'")->fetch(PDO::FETCH_ASSOC);
+                            echo $sql2["COUNT(*)"];
+                            ?>
+                        </span>
                         <a href="view_order.php?od=<?= $row->card_order ?>" class="order_collect_edit"
                            data-html="true"><i class="fa-solid fa-eye"></i></a>
                     </div>
@@ -112,45 +119,8 @@ include 'update_amount.html'; // popup with amount
 include 'update_goal.html'; // popup with goal
 include 'donate.html'; // popup with goal
 ?>
-
-    <script>
-        $(function () {
-            $(".order_collect_edit").click(
-                function () {
-                    var nametitle = $(this).attr('data-collect');
-                    var orderid = $(this).attr('data-id');
-
-                    $(".showcollect").attr('value', nametitle);
-                    $(".id_hidden").attr('value', orderid);
-                })
-        });
-
-        $(function () {
-            $(".order_goal_edit").click(
-                function () {
-                    var namegoal = $(this).attr('data-goal');
-                    var orderid = $(this).attr('data-id');
-
-                    $(".showgoal").attr('value', namegoal);
-                    $(".id_hidden").attr('value', orderid);
-                })
-        });
-
-        $(function () {
-            $(".donate").click(
-                function () {
-                    var orderid = $(this).attr('data-order-id');
-                    var cardorder = $(this).attr('data-card-order');
-                    var dataname = $(this).attr('data-name');
-
-                    $(".order_id_hidden").attr('value', orderid);
-                    $(".card_order_hidden").attr('value', cardorder);
-                    $("#name").text(dataname);
-                    $(".name").attr('value', dataname);
-                })
-        });
-    </script>
-
+<script src="../js/data_sum_goal.js"></script>
+<script src="../js/data_donate.js"></script>
 <?php
 include 'footer.php'; // add footer
 ?>

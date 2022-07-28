@@ -25,12 +25,12 @@
                 <input type="text" class="form-control" aria-label="order_name" name="name_en">
             </div>
             <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Ціль по зборам</label>
-                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="goal">
+                <label for="exampleFormControlTextarea1" class="form-label">Наявна сума</label>
+                <input type="text" class="form-control" placeholder="грн." aria-label="order_goal" name="start_sum">
             </div>
             <div class="col-sm-2">
-                <label for="formFile" class="form-label">Дата:</label>
-                <input type="date" class="form-control" name="date" value="<?=date('Y-m-d');?>">
+                <label for="exampleFormControlTextarea1" class="form-label">Ціль по зборам</label>
+                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="goal">
             </div>
         </div>
         <div class="row g-3 mt-1">
@@ -38,13 +38,9 @@
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (sk)</label>
                 <input type="text" class="form-control" aria-label="order_name" name="name_sk">
             </div>
-            <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Наявна сума на початок</label>
-                <input type="text" class="form-control" placeholder="грн." aria-label="order_goal" name="start_sum">
-            </div>
-            <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Кількість донатерів</label>
-                <input type="number" class="form-control" aria-label="order_goal" name="donat_amount">
+            <div class="col-sm-4">
+                <label for="formFile" class="form-label">Дата:</label>
+                <input type="date" class="form-control" name="date" value="<?=date('Y-m-d');?>">
             </div>
         </div>
 

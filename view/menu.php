@@ -10,19 +10,19 @@
                     <a class="nav-link active" aria-current="page" href="order_list.php">Добрі справи</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Звіти</a>
+                    <a class="nav-link" href="order_list.php?isadmin=true">(admin)</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="order_list.php?isadmin=true">(admin)</a>
+                    <a class="nav-link" href="report.php">Звіти</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Мова, валюта
+                        Мова
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="#">UA, грн.</a></li>
-                        <li><a class="dropdown-item" href="#">EN, UDS</a></li>
-                        <li><a class="dropdown-item" href="#">CK, EUR</a></li>
+                        <li><a class="dropdown-item" href="#">EN, usd</a></li>
+                        <li><a class="dropdown-item" href="#">CK, eur</a></li>
                     </ul>
                 </li>
             </ul>

@@ -1,4 +1,7 @@
 <?php
+//Current date
+date_default_timezone_set('Europe/Kiev');
+
 $string = file_get_contents('php://input'); //catch data
 $xml = str_replace('xml=', '', $string); // delete xml=
 $xmlObj = simplexml_load_string($xml); //convert to string
@@ -34,3 +37,5 @@ $sql_new_order = "INSERT INTO `donate_list` (
                       )";
 echo $sql_new_order;
 $count = $pdo->query($sql_new_order);
+$message = "Успішний донат від " . $donater_name . " на сумму " . $sum . " грн.";
+$telegram_send = fopen("https://api.telegram.org/bot5476468086:AAHGcMnLexL9eSPgAtsjYuElYzPkm75R6RA/sendMessage?chat_id=-678534217&text=$message", "r");

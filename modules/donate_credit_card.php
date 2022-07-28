@@ -4,6 +4,8 @@ $donater_name = $_POST['donater_name'];
 $order_name = $_POST['order-name'];
 $order_id = $_POST['id'];
 $card_order = $_POST['card_order'];
+$message = "Спроба донату від " . $donater_name . " на " . $order_name . " на сумму " . $sum . " грн.";
+$telegram_send = fopen("https://api.telegram.org/bot5476468086:AAHGcMnLexL9eSPgAtsjYuElYzPkm75R6RA/sendMessage?chat_id=-678534217&text=$message", "r");
 
 function APIstart($sum, $order_name, $order_id, $donater_name, $card_order) {
     $salt = sha1(microtime(true));
