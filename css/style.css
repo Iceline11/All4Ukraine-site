@@ -215,3 +215,39 @@ html {
     position: absolute;
     right: 7rem;
 }
+
+.news_date {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: start;
+    color: grey;
+}
+
+.news_date i {
+    margin-top: 3px;
+}
+
+.news_tag {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: end;
+    color: #0d6efd;
+}
+
+.news_tag i {
+    margin-top: 3px;
+}
+
+.color-orange {
+    color: coral;
+}
+
+.bt_edit_news {
+    position: absolute;
+    left: 87%;
+}
+
+.bt_del_news {
+    position: absolute;
+    left: 93%;
+}

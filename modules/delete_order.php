@@ -4,7 +4,7 @@ include "../dbconnect/dbconnect.php";
 $order_id = $_GET['id'];
 
 // Define quant order
-$sql_quant_order = $pdo->query('SELECT COUNT(*) FROM orders');
+$sql_quant_order = $pdo->query('SELECT COUNT(*) FROM orders WHERE status =1');
 $order_res = $sql_quant_order->fetch(PDO::FETCH_ASSOC);
 $quant_order = $order_res["COUNT(*)"];
 
