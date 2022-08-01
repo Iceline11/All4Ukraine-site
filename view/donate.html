@@ -54,28 +54,37 @@
                     </div>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade mx-4 mb-4" id="by_paypal" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <form method="post" action="../modules/donate_credit_card.php">
-                                <div class="row mb-4">
-                                    <label class="form-label">Заповніть поля та нажміть на кнопку "Продовжити"</label>
-                                    <div class="col-sm-4">
-                                        <div class="form-floating">
-                                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-                                            <label for="floatingInput">Сума донату, грн.</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingPassword" placeholder="Підпис на сторінці" required>
-                                            <label for="floatingPassword">Ваше ім`я</label>
-                                            <small>Після успішної оплати Ваше ім`я буде відображено в історії донатів по даній заявці</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <button type="button" class="btn btn-secondary  me-3">Відміна</button>
-                                    <button type="submit" class="btn btn-primary">Продовжити</button>
-                                </div>
-                            </form>
+                            <!-- Replace "test" with your own sandbox Business account app client ID -->
+                            <script src="https://www.paypal.com/sdk/js?client-id=Ad1yllXji_Ar2gTo7x0qnZ6rJLNQYefjipg27uNGd_zdJpZFvyZMLTbLYmmrj51tvZEmSvqrHlBIkdXi&currency=USD"></script>
+                            <!-- Set up a container element for the button -->
+                            <div id="paypal-button-container"></div>
+                            <script>
+                                paypal.Buttons({
+                                    // Sets up the transaction when a payment button is clicked
+                                    createOrder: (data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [{
+                                                amount: {
+                                                    value: '77.44' // Can also reference a variable or function
+                                                }
+                                            }]
+                                        });
+                                    },
+                                    // Finalize the transaction after payer approval
+                                    onApprove: (data, actions) => {
+                                        return actions.order.capture().then(function(orderData) {
+                                            // Successful capture! For dev/demo purposes:
+                                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                                            const transaction = orderData.purchase_units[0].payments.captures[0];
+                                            // alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+                                            // When ready to go live, remove the alert and show a success message within this page. For example:
+                                            const element = document.getElementById('paypal-button-container');
+                                            element.innerHTML = '<h3>Thank you for your payment!</h3><?php ?>';
+                                            // Or go to another URL:  actions.redirect('thank_you.html');
+                                        });
+                                    }
+                                }).render('#paypal-button-container');
+                            </script>
                         </div>
                     </div>
                     <div class="tab-content" id="pills-tabContent">
@@ -112,3 +121,8 @@
         </div>
     </div>
 </div>
+
+
+
+
+

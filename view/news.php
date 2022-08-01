@@ -17,7 +17,7 @@ $sql_select_news = $pdo->query('SELECT * FROM `news` ORDER BY date DESC');
             <?php
             while ($row = $sql_select_news->fetch(PDO::FETCH_OBJ)) { // start while ?>
             <div class="card mb-4">
-                <img src="../uploads/photo_2022-05-19%2012.55.06.jpeg" class="card-img-top" alt="...">
+                <img src="../uploads/<?= $row->pict_src ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm news_date">
@@ -35,9 +35,9 @@ $sql_select_news = $pdo->query('SELECT * FROM `news` ORDER BY date DESC');
                         </div>
                     </div>
                     <div class="card-title">
-                        <a type="button" href="edit_news.php?id=<?= $row->order_id ?>"
+                        <a type="button" href="edit_news.php?id=<?= $row->news_id ?>"
                            class="bt_edit_news btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a type="button" href="../modules/delete_news.php?id=<?= $row->order_id ?>"
+                        <a type="button" href="../modules/delete_news.php?id=<?= $row->news_id ?>"
                            class="bt_del_news btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                         <h5><?= $row->name_ua ?></h5>
                     </div>

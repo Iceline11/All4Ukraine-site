@@ -14,7 +14,7 @@ $category = htmlspecialchars($_POST['category']);
 $pict_src = basename($_FILES["fileToUpload"]["name"]);
 $descr_ua = htmlspecialchars($_POST['descr_ua']);
 $descr_en = htmlspecialchars($_POST['descr_en']);
-$descr_ck = htmlspecialchars($_POST['descr_ck']);
+$descr_ck = htmlspecialchars($_POST['descr_sk']);
 
 //insert into DB
 $sql_new_news = "INSERT INTO `news` (
