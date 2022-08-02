@@ -93,6 +93,16 @@ function statusdescr($status) {
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="checkbox" value="1" id="flexCheckCheckedPaypal" name="allow" checked>
+                                    <label class="form-check-label" for="flexCheckCheckedPaypal">
+                                        <small>Дозволити перенести донат на іншу заяву при нагальній потребі</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>

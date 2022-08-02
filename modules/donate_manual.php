@@ -4,7 +4,7 @@ $order_id = $_POST['order_id'];
 $donater_name = $_POST['donater'];
 $sum = $_POST['sum'];
 $method = "By button";
-
+$allow = $_POST['allow'];
 
 //Current date
 date_default_timezone_set('Europe/Kiev');
@@ -18,6 +18,7 @@ $sql_new_donate = "INSERT INTO `donate_list` (
                             `method`,
                             `date`,
                             `status`,
+                            `allow_transfer`,
                             `transfer_id`
                            )
               VALUES (
@@ -28,6 +29,7 @@ $sql_new_donate = "INSERT INTO `donate_list` (
                       '$method',
                       '$date',
                       1,
+                      '$allow',
                       NULL
                       )";
 $count = $pdo->query($sql_new_donate);

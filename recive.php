@@ -11,6 +11,7 @@ $order_id = $res->order_id;
 $sum = $res->sum;
 $donater_name = $res->donater_name;
 $method = $res->method;
+$allow = $res->allow;
 $date = date("Y-m-d H:i:s");
 
 include "dbconnect/dbconnect.php";
@@ -23,6 +24,7 @@ $sql_new_order = "INSERT INTO `donate_list` (
                             `method`,
                             `date`,
                             `status`,
+                            `allow_transfer`,
                             `transfer_id`
                            )
               VALUES (
@@ -33,6 +35,7 @@ $sql_new_order = "INSERT INTO `donate_list` (
                       '$method',
                       '$date',
                       1,
+                      '$allow',
                       NULL
                       )";
 echo $sql_new_order;
