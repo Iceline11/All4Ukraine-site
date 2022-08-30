@@ -5,10 +5,16 @@ $order_name = $_POST['order-name'];
 $order_id = $_POST['id'];
 $card_order = $_POST['card_order'];
 $allow = $_POST['allow'];
-$message = "Спроба донату від " . $donater_name . " на " . $order_name . " на сумму " . $sum . " грн.";
+if (isset($_COOKIE['ref'])) {
+    $ref = $_COOKIE['ref'];
+}
+else {
+    $ref = NULL;
+}
+$message = "Спроба донату на Ipay від " . $donater_name . " на " . $order_name . " на сумму " . $sum . " грн. (реферал: " . $ref . ")";
 $telegram_send = fopen("https://api.telegram.org/bot5476468086:AAHGcMnLexL9eSPgAtsjYuElYzPkm75R6RA/sendMessage?chat_id=-678534217&text=$message", "r");
 
-function APIstart($sum, $order_name, $order_id, $donater_name, $allow, $card_order) {
+function APIstart($sum, $order_name, $order_id, $donater_name, $allow, $card_order, $ref) {
     $salt = sha1(microtime(true));
     $sign_key = "e8c0f6836dc5184da895acd2c63aed92107db1f1";
     $sign = hash_hmac('sha512', $salt, $sign_key);
@@ -35,7 +41,8 @@ function APIstart($sum, $order_name, $order_id, $donater_name, $allow, $card_ord
                                         "sum": "'.$sum.'",
                                         "donater_name": "'.$donater_name.'",
                                         "method": "iPay",
-                                        "allow": "'.$allow.'"
+                                        "allow": "'.$allow.'",
+                                        "ref": "'.$ref.'"
                                     }
                                 </info>
                         </transaction>
@@ -58,7 +65,7 @@ function APIstart($sum, $order_name, $order_id, $donater_name, $allow, $card_ord
     return $xml->url;
 }
 
-$new = APIstart($sum, $order_name, $order_id, $donater_name, $allow, $card_order);
+$new = APIstart($sum, $order_name, $order_id, $donater_name, $allow, $card_order, $ref);
 
 header("Location: $new");
 

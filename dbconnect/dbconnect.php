@@ -3,7 +3,7 @@
     $db   = 'orders';
     $user = 'root';
     $pass = 'root';
-    $charset = 'utf8';
+    $charset = 'UTF8MB4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
     $pdo = new PDO($dsn, $user, $pass);

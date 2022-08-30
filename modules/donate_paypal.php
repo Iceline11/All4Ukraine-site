@@ -1,7 +1,7 @@
 <?php
 //DB connect
 include "../dbconnect/dbconnect.php";
-// parsing data from view/donate.html
+// parsing data from view/donate.php
 $postData = file_get_contents('php://input');
 $data = json_decode($postData, true);
 

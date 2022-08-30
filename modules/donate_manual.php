@@ -3,8 +3,9 @@ include "../dbconnect/dbconnect.php";
 $order_id = $_POST['order_id'];
 $donater_name = $_POST['donater'];
 $sum = $_POST['sum'];
-$method = "By button";
+$method = $_POST['method'];
 $allow = $_POST['allow'];
+
 
 //Current date
 date_default_timezone_set('Europe/Kiev');
@@ -33,6 +34,7 @@ $sql_new_donate = "INSERT INTO `donate_list` (
                       NULL
                       )";
 $count = $pdo->query($sql_new_donate);
+
 if (isset($_POST['page'])) {
     header("Location: ../view/report.php");
 }

@@ -13,4 +13,4 @@ $sql_update_amount = "UPDATE `orders` SET
 
 $count = $pdo->query($sql_update_amount);
 
-header('Location: ../view/order_list.php?isadmin=true');
+header('Location: ../view/order_list.php');

@@ -1,8 +1,21 @@
 <?php
 include 'header.php'; // add header
+$menuitem = "orders"; // active page
 include 'menu.php'; // add menu
 
-if (isset($_GET['isadmin'])) {
+// check admin rules
+if (isset($_COOKIE["login"])) {
+    $log = true;
+}
+else $log = false;
+
+if (isset($_COOKIE["password"])) {
+    $pas = true;
+}
+else $pas = false;
+
+// SELECT ORDERS
+if ($log == true and $pas == true) {
     include '../modules/select_orders_admin.php';
 } else {
     include '../modules/select_orders.php';
@@ -18,17 +31,47 @@ if ($info == "success") {
     require_once 'view/info_last.html';
 }
 
+
+
 ?>
 
     <div class="container">
+        <div class="row my-3 ">
+            <div class="d-flex align-items-center">
+                <div class="col-md-3 col-lg-4 col-md-4 d-none d-md-block">
+                    <img src="../pictures/pickup1.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><?= $lang['free_balance_name']?></h4>
+                            <div class="text-center text-red mb-2">
+                                <span class="order_collect_text">₴ 12742</span>
+                            </div>
+                            <hr>
+                            <p class="card-text"><?= $lang['free_balance_descr']?></p>
+                            <div class="text-center">
+                                <a href="view_order.php" class="btn btn-primary read_more mx-1 my-1"><?= $lang['detail']?></a>
+                                <a class="donate btn btn-warning donate ms-3" data-bs-toggle="modal" data-bs-target="#modal_donate"
+                                data-order-id="1" data-name="<?= $lang['free_balance_name']?>" data-card-order=""><?= $lang['donate_btn']?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-4 col-md-4 d-none d-sm-block">
+                    <img src="../pictures/pickup2.png" class="img-fluid rounded-end" alt="...">
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <h4 class="my-4">Добрі справи</h4>
-            <?php if (isset($_GET['isadmin'])) {?>
+            <h4 class="my-4"><?= $lang['good_deeds']?></h4>
+            <?php
+            if ($log == true and $pas == true) { ?>
                 <a href="new_order.php" type="button"class="btn btn-outline-success mb-4">Нова заявка</a>
-            <?php }?>
+            <?php } ?>
         </div>
         <?php
-            while ($row = $sql_select_orders->fetch(PDO::FETCH_OBJ)) { // start while
+            while ($row = $sql_select_orders->fetch(PDO::FETCH_OBJ)) {
 
             // sum on every order
             $sql_sum = $pdo->query("SELECT SUM(sum) FROM donate_list WHERE order_id = '$row->order_id' AND transfer_id IS NULL")->fetch(PDO::FETCH_ASSOC);
@@ -42,7 +85,7 @@ if ($info == "success") {
                     <img class="order_picture" src="../uploads/<?=$status = ($row->status == 2) ? "sucess.jpeg" : $row->pict_src ?>">
                 </div>
                 <div class="col-md-8 col-sm-8 order_subscr">
-                    <?php if (isset($_GET['isadmin'])) {?>
+                    <?php if ($log == true and $pas == true) {?>
                         <div class="admin_buttons">
                             <a type="button" href="../modules/move_up.php?id=<?= $row->order_id ?>"
                                class="btn btn-sm btn-info"><i class="fa-solid fa-arrow-up"></i></a>
@@ -64,16 +107,32 @@ if ($info == "success") {
                         <i class="fa-solid fa-calendar-days"></i>
                         <p><?= $row->date ?></p>
                     </div>
-                    <a class="order_link_nostyle" href="view_order.php?od=<?= $row->card_order ?>"><h4><?= $row->name_ua ?></h4></a>
-                    <p><?= mb_substr($row->descr_ua, 0, 400) . " " ?><a href="view_order.php?od=<?= $row->card_order ?>">(далі)</a></p>
+                    <a class="order_link_nostyle" href="view_order.php?od=<?= $row->card_order ?>"><h4><?php
+                            if (get_user_lang() == "ua") {
+                                echo $row->name_ua; }
+                            elseif (get_user_lang() == "en") {
+                                echo $row->name_en; }
+                            else {
+                                echo $row->name_ck;
+                            }
+                            ?></h4></a>
+                    <p><?php
+                        if (get_user_lang() == "ua") {
+                            echo mb_substr($row->descr_ua, 0, 400) . " "; }
+                        elseif (get_user_lang() == "en") {
+                            echo mb_substr($row->descr_en, 0, 400) . " "; }
+                        else {
+                            echo mb_substr($row->descr_ck, 0, 400) . " ";
+                        }
+                        ?><a href="view_order.php?od=<?= $row->card_order ?>">(далі)</a></p>
                     <div class="order_donations">
-                        <span class="order_collect">Зібрано:&nbsp;</span>
-                        <?php if (isset($_GET['isadmin'])) {?>
+                        <span class="order_collect me-1"><?= $lang['collect']?></span>
+                        <?php if ($log == true and $pas == true) {?>
                             <a class="order_collect_edit" data-bs-toggle="modal" data-bs-target="#modal_amount" data-id="<?= $row->order_id ?>"
                                data-collect="<?= $row->start_sum ?>"><i  class="fa-solid fa-pen-to-square"></i></a>
                         <?php }?>
                         <span class="order_collect_text">₴ <?= $sum ?></span>
-                        <span class="order_quant">Донатерів: &nbsp;</span><span
+                        <span class="order_quant me-1"><?= $lang['donaters']?></span><span
                                 class="order_quant_text">
                             <?php
                             // Select quantity for each order
@@ -93,18 +152,18 @@ if ($info == "success") {
                     </div>
                     <div class="row row_bottom">
                         <div class="col-md-5 d-flex align-items-center">
-                            <span class="order_goal">Ціль:&nbsp;</span>
-                        <?php if (isset($_GET['isadmin'])) {?>
+                            <span class="order_goal me-1"><?= $lang['goal']?></span>
+                        <?php if ($log == true and $pas == true) {?>
                             <a class="order_goal_edit" data-bs-toggle="modal" data-bs-target="#modal_goal"
                                data-id="<?= $row->order_id ?>" data-goal="<?= $row->goal ?>"><i
                                         class="fa-solid fa-pen-to-square"></i></a>
                         <?php }?>
                         <div class="order_goal_text">₴ <?= $row->goal ?></div>
                         </div>
-                        <div class="col-md d-flex justify-content-center donate_rearmore">
-                            <a href="view_order.php?od=<?= $row->card_order ?>" class="btn btn-primary read_more">Докладніше</a>
+                        <div class="col-md d-flex justify-content-end donate_rearmore">
+                            <a href="view_order.php?od=<?= $row->card_order ?>" class="btn btn-primary read_more"><?= $lang['detail']?></a>
                             <a class="donate btn btn-warning donate ms-3" data-bs-toggle="modal" data-bs-target="#modal_donate"
-                               data-order-id="<?= $row->order_id ?>" data-card-order="<?= $row->card_order ?>" data-name="<?= $row->name_ua ?>">Задонатити</a>
+                               data-order-id="<?= $row->order_id ?>" data-card-order="<?= $row->card_order ?>" data-name="<?= $row->name_ua ?>"><?= $lang['donate_btn']?></a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +176,7 @@ if ($info == "success") {
 <?php
 include 'update_amount.html'; // popup with amount
 include 'update_goal.html'; // popup with goal
-include 'donate.html'; // popup with goal
+include 'donate.php'; // popup with goal
 ?>
 <script src="../js/data_sum_goal.js"></script>
 <script src="../js/data_donate.js"></script>

@@ -60,10 +60,10 @@ include 'menu.php'; // add menu
         <div class="row g-3 mt-1">
             <div>
                 <label for="exampleFormControlTextarea1" class="form-label">Опис (sk)</label>
-                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ck" rows="5"></textarea>
+                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_sk" rows="5"></textarea>
             </div>
         </div>
-        <div class="row g-3 mt-1">
+        <div class="row g-3 mt-1 mb-4">
             <button type="submit" class="btn btn-success" name="add">Добавити</button>
         </div>
     </form>

@@ -9,7 +9,7 @@
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
-                <input type="text" class="form-control" aria-label="order_name" name="name_ua">
+                <input type="text" class="form-control" aria-label="order_name" name="name_ua" required>
             </div>
             <div class="col-sm">
                 <div>
@@ -30,7 +30,7 @@
             </div>
             <div class="col-sm-2">
                 <label for="exampleFormControlTextarea1" class="form-label">Ціль по зборам</label>
-                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="goal">
+                <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="goal" required>
             </div>
         </div>
         <div class="row g-3 mt-1">
@@ -47,7 +47,7 @@
         <div class="row g-3 mt-1">
             <div>
                 <label for="exampleFormControlTextarea1" class="form-label">Опис (укр)</label>
-                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ua" rows="5"></textarea>
+                <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ua" rows="5" required></textarea>
             </div>
         </div>
         <div class="row g-3 mt-1">
@@ -62,7 +62,7 @@
                 <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ck" rows="5"></textarea>
             </div>
         </div>
-        <div class="row g-3 mt-1">
+        <div class="row g-3 mt-1 mb-4">
             <button type="submit" class="btn btn-success" name="add">Добавити</button>
         </div>
     </form>

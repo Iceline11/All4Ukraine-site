@@ -1,17 +1,8 @@
 <?php
-include 'view/header.php'; // add header
-include 'view/menu.php'; // add menu
-
-header('Location: view/order_list.php');
-?>
-
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <h4 class="my-4">Головна</h4>-->
-<!--        </div>-->
-<!--    </div>-->
-
-
-<?php
-include 'view/footer.php'; // add footer
+if (isset($_GET['ref'])) {
+    setcookie("ref", $_GET['ref'], time() + 14 * 86400, "/");
+    header('Location: view/index.php');
+}
+else
+    header('Location: view/index.php');
 ?>

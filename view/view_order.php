@@ -1,12 +1,31 @@
 <?php
+// add referal in cookie
+if (isset($_GET['ref'])) {
+    setcookie("ref", $_GET['ref'], time() + 14 * 86400, "/");
+}
+
 
 include '../view/header.php'; // add header
+$menuitem = "orders"; // active page
 include '../view/menu.php'; // add menu
 
 include "../dbconnect/dbconnect.php";
 
+// check admin rules
+if (isset($_COOKIE["login"])) {
+    $log = true;
+}
+else $log = false;
+
+if (isset($_COOKIE["password"])) {
+    $pas = true;
+}
+else $pas = false;
+
 // recive GET card order
-$card_order = $_GET['od'];
+if (isset($_GET['od'])){
+    $card_order = $_GET['od'];
+}
 
 // Define max order
 $sql_max_order = $pdo->query("SELECT MAX(card_order) FROM orders");
@@ -17,10 +36,20 @@ $max_card = $order_res["MAX(card_order)"];
 $sql_all_orders = $pdo->query('SELECT * FROM `orders` WHERE status = 1 ORDER BY card_order ASC ');
 
 // show all orders except this one
-$sql_other_orders = $pdo->query("SELECT * FROM `orders` WHERE status = 1 and card_order != '$card_order' ORDER BY card_order ASC");
+if (isset($card_order)) {
+    $sql_other_orders = $pdo->query("SELECT * FROM `orders` WHERE status = 1 and card_order != '$card_order' ORDER BY card_order ASC");
+}
+else {
+    $sql_other_orders = $pdo->query("SELECT * FROM `orders` WHERE status = 1 and order_id != 1 ORDER BY card_order ASC");
+}
 
-// get array from DB
-$sql_order_edit = $pdo->query("SELECT * FROM `orders` WHERE card_order = '$card_order'");
+// get array for this order from DB
+if (isset($card_order)){
+    $sql_order_edit = $pdo->query("SELECT * FROM `orders` WHERE card_order = '$card_order'");
+}
+else {
+    $sql_order_edit = $pdo->query("SELECT * FROM `orders` WHERE order_id = 1");
+}
 $res_edit = $sql_order_edit->fetch(PDO::FETCH_OBJ);
 
 // sum on this order
@@ -47,7 +76,7 @@ elseif ($info == "bad") {
     require_once '../view/failed_donate.html';
 }
 ?>
-    <div class="container">
+    <div class="container px-5">
         <div class="row mx-4 d-flex align-items-center">
             <div class="col-sm-12  position-relative">
                 <?php
@@ -63,9 +92,20 @@ elseif ($info == "bad") {
                 if ($res_edit->card_order == 1 )
                     echo
                     '<a href="view_order.php?od=' . $max_card . '"><i class="arrow-right fa-solid fa-chevron-right"></i></a>';
+                if (empty($card_order))
+                    echo
+                        '<a href="view_order.php?od=' . $max_card . '"><i class="arrow-right fa-solid fa-chevron-right"></i></a>';
                 ?>
-                <h2 class="mt-4"><?= $res_edit->name_ua ?></h2>
-                <p class="mb-4">Дата отримання заявки: <?= $res_edit->date ?></p>
+                <h2 class="mt-4"><?php
+                    if (get_user_lang() == "ua") {
+                        echo $res_edit->name_ua; }
+                    elseif (get_user_lang() == "en") {
+                        echo $res_edit->name_en;; }
+                    else {
+                        echo $res_edit->name_ck;;
+                    }
+                ?></h2>
+                <p class="mb-4"><?= $lang['order_data']?><?= $res_edit->date ?></p>
             </div>
             <div class="col-sm-12">
                 <div class="progress ml-2 mb-1" style="height: 35px;">
@@ -73,18 +113,26 @@ elseif ($info == "bad") {
                 </div>
             </div>
             <div class="col-sm-12 orders_numbers mb-4">
-                <span class="order_collect_view">Зібрано:&nbsp;</span><span class="order_collect_text_view">₴ <?=$sum?> &nbsp</span>
+                <span class="order_collect_view me-1"><?= $lang['collect']?></span><span class="order_collect_text_view">₴ <?=$sum?> &nbsp</span>
                 <a class="donate btn btn-warning btn-sm"  data-bs-toggle="modal" data-bs-target="#modal_donate"
                    data-order-id="<?= $res_edit->order_id ?>" data-card-order="<?= $res_edit->card_order ?>" data-name="<?= $res_edit->name_ua ?>">+</a>
-                <span class="order_goal_view">Ціль:&nbsp;</span><span class="order_goal_text_view">₴ <?= $res_edit->goal ?></span>
+                <span class="order_goal_view me-1"><?= $lang['goal']?></span><span class="order_goal_text_view">₴ <?= $res_edit->goal ?></span>
             </div>
         </div>
         <div class="row mx-4">
             <div class="col-sm-5 d-flex">
-                <img class="align-self-center rounded" style="width: 100%" src="../uploads/<?= $res_edit->pict_src ?>">
+                <img class="align-self-start rounded" style="width: 100%" src="../uploads/<?= $res_edit->pict_src ?>">
             </div>
             <div class="col-sm-7 align-self-center">
-                <p><?= $res_edit->descr_ua ?></p>
+                <p class="fs-5"><?php
+                    if (get_user_lang() == "ua") {
+                        echo $res_edit->descr_ua; }
+                    elseif (get_user_lang() == "en") {
+                        echo $res_edit->descr_en;; }
+                    else {
+                        echo $res_edit->descr_ck;;
+                    }
+                    ?></p>
             </div>
         </div>
 
@@ -92,22 +140,22 @@ elseif ($info == "bad") {
         <div class="row mt-2">
             <div class="d-flex justify-content-center my-4">
                 <a class="donate btn btn-warning my-4 btn-lg" data-bs-toggle="modal" data-bs-target="#modal_donate"
-                   data-order-id="<?= $res_edit->order_id ?>" data-card-order="<?= $res_edit->card_order ?>" data-name="<?= $res_edit->name_ua ?>">Задонатити</a>
+                   data-order-id="<?= $res_edit->order_id ?>" data-card-order="<?= $res_edit->card_order ?>" data-name="<?= $res_edit->name_ua ?>"><?= $lang['donate_btn']?></a>
             </div>
         </div>
 
         <!--DONATE HISTORY-->
         <div class="row mx-4 my-1">
-            <h4>Історія донатів </h4>
+            <h4><?= $lang['donate_history']?></h4>
         </div>
         <div class="row mx-4">
             <table class="table donater-table">
                 <thead class="table-warning">
                 <tr>
-                    <th scope="col">Добродій</th>
-                    <th scope="col">Сума</th>
-                    <th scope="col">Дата донату</th>
-                    <th scope="col">Переноси</th>
+                    <th scope="col"><?= $lang['donater']?></th>
+                    <th scope="col"><?= $lang['sum']?></th>
+                    <th scope="col"><?= $lang['date']?></th>
+                    <th scope="col"><?= $lang['transfers']?></th>
 
                 </tr>
                 </thead>
@@ -124,9 +172,12 @@ elseif ($info == "bad") {
                         if (isset($row->transfer_id)) {
                             echo transfer_link ($pdo, $row->transfer_id);
                         }
-                        echo '<button data-donate-id="' . $row->id . '" type="button" class="btn btn-success btn-sm transfer-donate btn-history-replace" data-bs-toggle="modal" data-bs-target="#ReplaceDonate"><i class="fa-solid fa-arrows-left-right"></i></button>';
-                        echo '<a type="button" href="../modules/delete_order.php?id=<?= $row->order_id ?>"
+                        // transfer and delete buttons
+                        if ($log == true and $pas == true) {
+                            echo '<button data-donate-id="' . $row->id . '" type="button" class="btn btn-success btn-sm transfer-donate btn-history-replace" data-bs-toggle="modal" data-bs-target="#ReplaceDonate"><i class="fa-solid fa-arrows-left-right"></i></button>';
+                            echo '<a type="button" href="../modules/delete_donate.php?id=' . $row->id . '"
                                class="btn btn-sm btn-danger ms-2 btn-history-delete"><i class="fa-solid fa-trash-can"></i></a></td>';
+                        }
                         echo "</td></tr>";
                     }
                     // Transfers from
@@ -142,15 +193,18 @@ elseif ($info == "bad") {
                     } ?>
                 </tbody>
             </table>
-            <div class="col-sm mb-4"><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addDonate">Добавити</button></div>
+            <?php if ($log == true and $pas == true)
+                echo '<div class="col-sm mb-4"><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addDonate">Добавити</button></div>'
+            ?>
         </div>
+    </div>
 
 <!--Modal for replace-->
 <div class="modal fade" id="ReplaceDonate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Перемістити ставку</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Перемістити донат</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <form action="../modules/transfer_donate.php" method="post">
@@ -166,7 +220,7 @@ elseif ($info == "bad") {
                         </select>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
                         <button class="btn btn-primary" type="submit">Перемістити</button>
                     </div>
                 </form>
@@ -183,18 +237,38 @@ elseif ($info == "bad") {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
             </div>
             <form action="../modules/donate_manual.php" method="post">
-                <div class="row modal-body">
-                    <div class="col-sm-8">
-                        <input type="hidden" class="id_hidden" name="order_id" value="<?=$res_edit->order_id?>">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="donater">
-                            <label for="floatingInput">Ім`я</label>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <input type="hidden" class="id_hidden" name="order_id" value="<?=$res_edit->order_id?>">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="donater">
+                                <label for="floatingInput">Ім`я</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" name="sum">
+                                <label for="floatingInput">Сумма, грн.</label>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com" name="sum">
-                            <label for="floatingInput">Сумма, грн.</label>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="method" placeholder="name@example.com" name="method">
+                                <label for="method">Метод</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-check mt-1">
+                                <input class="form-check-input" type="checkbox" value="1" id="flexCheckCheckedPaypal" name="allow" checked>
+                                <label class="form-check-label" for="flexCheckCheckedPaypal">
+                                    <small>Дозволити перенести донат на іншу заяву при нагальній потребі</small>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -210,7 +284,7 @@ elseif ($info == "bad") {
 <?php
 include 'update_amount.html'; // popup with amount
 include 'update_goal.html'; // popup with goal
-include 'donate.html'; // popup with goal
+include 'donate.php'; // popup with goal
 ?>
 <script src="../js/modal_transfer.js"></script>
 <!--<script src="../js/data_sum_goal.js"></script>-->

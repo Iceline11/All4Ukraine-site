@@ -2,6 +2,14 @@ html {
     font-size: 16px;
 }
 
+.text-yellow {
+    color: #fde910;
+}
+
+.text-yellow:hover {
+    color: yellow;
+}
+
 .order_card {
     display: flex;
     justify-content: start;
@@ -250,4 +258,139 @@ html {
 .bt_del_news {
     position: absolute;
     left: 93%;
+}
+
+.carousel-control-next {
+    width: 8%;
+}
+
+.carousel-control-prev {
+    width: 8%;
+}
+
+.pic_ceo {
+    max-width: 100px;
+}
+
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+}
+
+.fb_link {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+.owl-nav {
+    display: none !important;
+}
+
+.owl-prev {
+    font-size: 2rem !important;
+}
+
+.owl-next {
+    font-size: 2rem !important;
+}
+
+.owl-nav {
+    margin-top: 0px !important;;
+}
+
+.form-header {
+    background-color: #0d6efd; !important;
+    padding: 1rem;
+    margin-top: -3.13rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.125rem;
+    -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+    box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+}
+
+.btn-floating {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0;
+    margin: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+    box-shadow: 0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%);
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    width: 47px;
+    height: 47px;
+    background-color: #0d6efd !important;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 47px;
+}
+
+.height-container {
+    height: 80vh;
+}
+
+.counter {
+    background-color:#f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.count-text {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.color-blue {
+    color: #0d6efd;
+}
+
+.bg_flag {
+    background: rgb(255,209,0);
+    background: linear-gradient(0deg, rgba(255,209,0,1) 35%, rgba(0,130,209,1) 65%);
+}
+
+.gradient_box {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    border-radius: 10px;
+    background: rgba(255,245,215,0.85);
+}
+
+@media screen and (max-width: 600px) {
+    .gradient_box {
+        width: 90%;
+    }
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+
 }
