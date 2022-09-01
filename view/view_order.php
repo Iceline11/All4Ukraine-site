@@ -121,7 +121,7 @@ elseif ($info == "bad") {
         </div>
         <div class="row mx-4">
             <div class="col-sm-5 d-flex">
-                <img class="align-self-start rounded" style="width: 100%" src="../uploads/<?= $res_edit->pict_src ?>">
+                <img class="align-self-start rounded" style="width: 100%" src="../uploads/<?= $res_edit->pict_src_ua ?>">
             </div>
             <div class="col-sm-7 align-self-center">
                 <p class="fs-5"><?php

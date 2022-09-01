@@ -15,32 +15,37 @@ $sql_order_edit = $pdo->query("SELECT * FROM `orders` WHERE order_id = '$order_i
     <h2 class="my-3">Редагувати заявку</h2>
     <form method="post" action="../modules/edit_order.php" enctype="multipart/form-data">
         <div class="row g-3 mt-1">
-            <div class="col-sm-3">
-                <img style="width: 90%" src="../uploads/<?=$sql_order_edit['pict_src']?>">
+            <div class="col-sm-6">
+                <img style="height: 300px" src="../uploads/<?=$sql_order_edit['pict_src_ua']?>">
+                <img style="height: 300px" src="../uploads/<?=$sql_order_edit['pict_src_en']?>">
+                <img style="height: 300px" src="../uploads/<?=$sql_order_edit['pict_src_sk']?>">
             </div>
-            <div class="col-sm-9">
-                <div class="row">
-                    <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
-                    <input type="text" class="form-control" aria-label="order_name" name="name_ua" value="<?=$sql_order_edit['name_ua']?>">
-                    <input type="hidden" name="id" value="<?=$order_id?>">
-                </div>
-                <div class="row mt-2">
-                    <label for="formFile" class="form-label">Нове фото:</label>
-                    <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
-                </div>
+            <div class="col-sm-6">
+                <label for="formFile" class="form-label">Нове фото(ua):</label>
+                <input class="form-control" type="file" id="fileToUpload_ua" name="fileToUpload_ua">
+                <label for="formFile" class="form-label">Нове фото(en):</label>
+                <input class="form-control" type="file" id="fileToUpload_en" name="fileToUpload_en">
+                <label for="formFile" class="form-label">Нове фото(sk):</label>
+                <input class="form-control" type="file" id="fileToUpload_sk" name="fileToUpload_sk">
             </div>
-
+        </div>
+        <div class="row g-3 mt-1">
+            <div class="col-sm-8">
+                <label for="exampleFormControlTextarea1" class="form-label">Назва (укр)</label>
+                <input type="text" class="form-control" aria-label="order_name" name="name_ua" value="<?=$sql_order_edit['name_ua']?>">
+                <input type="hidden" name="id" value="<?=$order_id?>">
+            </div>
+            <div class="col-sm-4">
+                <label for="exampleFormControlTextarea1" class="form-label">Наявна сума</label>
+                <input type="text" class="form-control" placeholder="грн." aria-label="order_goal" name="start_sum" value="<?=$sql_order_edit['start_sum']?>">
+            </div>
         </div>
         <div class="row g-3 mt-1">
             <div class="col-sm-8">
                 <label for="exampleFormControlTextarea1" class="form-label">Назва (eng)</label>
                 <input type="text" class="form-control" aria-label="order_name" name="name_en" value="<?=$sql_order_edit['name_en']?>">
             </div>
-            <div class="col-sm-2">
-                <label for="exampleFormControlTextarea1" class="form-label">Наявна сума</label>
-                <input type="text" class="form-control" placeholder="грн." aria-label="order_goal" name="start_sum" value="<?=$sql_order_edit['start_sum']?>">
-            </div>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <label for="exampleFormControlTextarea1" class="form-label">Ціль по зборам</label>
                 <input type="number" class="form-control" placeholder="грн." aria-label="order_goal" name="goal" value="<?=$sql_order_edit['goal']?>">
             </div>
@@ -74,7 +79,7 @@ $sql_order_edit = $pdo->query("SELECT * FROM `orders` WHERE order_id = '$order_i
                 <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ck" rows="5"><?=$sql_order_edit['descr_ck']?></textarea>
             </div>
         </div>
-        <div class="row g-3 mt-1">
+        <div class="row g-3 mt-1 mb-4">
             <button type="submit" class="btn btn-success" name="add">Змінити</button>
         </div>
     </form>

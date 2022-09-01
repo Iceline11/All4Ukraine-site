@@ -20,7 +20,7 @@ $descr_sk = htmlspecialchars($_POST['descr_sk']);
 // if we have new picture
 if ($_FILES["fileToUpload"]["name"] !== "") {
 
-    include "pic_upload.php";
+    include "pic_upload_ua.php";
     $new_picture = basename($_FILES["fileToUpload"]["name"]);
     $pict_src = "`pict_src` = '$new_picture', ";
 } else {

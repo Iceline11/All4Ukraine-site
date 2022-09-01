@@ -31,8 +31,6 @@ if ($info == "success") {
     require_once 'view/info_last.html';
 }
 
-
-
 ?>
 
     <div class="container">
@@ -81,8 +79,21 @@ if ($info == "success") {
         ?>
             <div class="row order_card" <?=$status = ($row->status == 3) ? 'style="opacity:50%"' : '' ?>>
                 <div class="col-md-4 col-sm-4 img-container">
-
-                    <img class="order_picture" src="../uploads/<?=$status = ($row->status == 2) ? "sucess.jpeg" : $row->pict_src ?>">
+                    <?php
+                    // get picture src
+                    if ($status = ($row->status == 2)) {
+                        $pict_src =  "sucess.jpeg";
+                    } else {
+                        if (get_user_lang() == "en" AND $row->pict_src_en !== NULL) {
+                            $pict_src = $row->pict_src_en;
+                        } elseif (get_user_lang() == "sk" AND $row->pict_src_sk !== NULL) {
+                            $pict_src = $row->pict_src_sk;
+                        } else {
+                            $pict_src = $row->pict_src_ua;
+                        }
+                    }
+                    ?>
+                    <img class="order_picture" src="../uploads/<?=$pict_src?>">
                 </div>
                 <div class="col-md-8 col-sm-8 order_subscr">
                     <?php if ($log == true and $pas == true) {?>

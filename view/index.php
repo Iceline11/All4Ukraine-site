@@ -1,4 +1,5 @@
 <?php
+
 include '../view/header.php'; // add header
 include '../view/menu.php'; // add menu
 
@@ -35,18 +36,48 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             <div class="bg-white bg_flag py-5">
                 <div class="container gradient_box px-5">
                     <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="d-lg-none text-center"><img class="img-fluid shadow rounded-3 mt-5 w-75" src="../uploads/<?= $first_priority->pict_src; ?>" alt="..." /></div>
+                        <div class="d-lg-none text-center"><img class="img-fluid shadow rounded-3 mt-5 w-75" src="../uploads/
+                            <?php
+                            if (get_user_lang() == "ua") {
+                                echo $first_priority->pict_src_ua; }
+                                elseif (get_user_lang() == "en") {
+                                echo $first_priority->pict_src_en; }
+                                else {
+                                echo $first_priority->pict_src_ck;
+                                }
+                            ?>
+                        " alt="..." /></div>
                         <div class="col-sm-12 col-lg-6 col-xl-7 col-xxl-6">
                             <div class="my-5 ms-3 text-xl-start">
-                                <h1 class="display-6 fw-bolder text-black mb-2"><?= $first_priority->name_ua; ?></h1>
-                                <p class="lead fw-normal text-black-50 mb-4"><?= mb_substr($first_priority->descr_ua, 0, 300) . " "; ?>... <a href="view_order.php?od=<?= $first_priority->card_order ?>">(далі)</a></p>
+                                <h1 class="display-6 fw-bolder text-black mb-2">
+                                    <?php
+                                    if (get_user_lang() == "ua") {
+                                        echo $first_priority->name_ua; }
+                                    elseif (get_user_lang() == "en") {
+                                        echo $first_priority->name_en; }
+                                    else {
+                                        echo $first_priority->name_ck;
+                                    }
+                                    ?>
+                                </h1>
+                                <p class="lead fw-normal text-black-50 mb-4">
+                                    <?php
+                                    if (get_user_lang() == "ua") {
+                                        echo mb_substr($first_priority->descr_ua, 0, 300) . " "; }
+                                    elseif (get_user_lang() == "en") {
+                                        echo mb_substr($first_priority->descr_en, 0, 300) . " "; }
+                                    else {
+                                        echo mb_substr($first_priority->descr_ck, 0, 300) . " ";
+                                    }
+                                    ?>
+                                ... <a href="view_order.php?od=<?= $first_priority->card_order ?>"><?= $lang['main_more']?></a></p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $first_priority->card_order ?>">До заявки</a>
-                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $first_priority->card_order ?>">Задонатити</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $first_priority->card_order ?>"><?= $lang['main_to_order']?></a>
+                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $first_priority->card_order ?>"><?= $lang['donate_btn']?></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-xl-5 col-xxl-6 d-none d-lg-block text-center"><img class="img-fluid shadow rounded-3 my-5 w-75" src="../uploads/<?= $first_priority->pict_src; ?>" alt="..." /></div>
+                        <div class="col-lg-6 col-xl-5 col-xxl-6 d-none d-lg-block text-center"><img class="img-fluid shadow rounded-3 my-5 w-75" src="../uploads/<?= $first_priority->pict_src_ua; ?>" alt="..." /></div>
                     </div>
                 </div>
             </div>
@@ -55,18 +86,48 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             <div class="bg-white bg_flag py-5">
                 <div class="container gradient_box px-5">
                     <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="d-lg-none text-center"><img class="img-fluid shadow rounded-3 mt-5 w-75" src="../uploads/<?= $second_priority->pict_src; ?>" alt="..." /></div>
+                        <div class="d-lg-none text-center"><img class="img-fluid shadow rounded-3 mt-5 w-75" src="../uploads/
+                            <?php
+                            if (get_user_lang() == "ua") {
+                                echo $second_priority->pict_src_ua; }
+                            elseif (get_user_lang() == "en") {
+                                echo $second_priority->pict_src_en; }
+                            else {
+                                echo $second_priority->pict_src_ck;
+                            }
+                            ?>
+                        " alt="..." /></div>
                         <div class="col-sm-12 col-lg-6 col-xl-7 col-xxl-6">
                             <div class="my-5 ms-3 text-xl-start">
-                                <h1 class="display-6 fw-bolder text-black mb-2"><?= $second_priority->name_ua; ?></h1>
-                                <p class="lead fw-normal text-black-50 mb-4"><?= mb_substr($second_priority->descr_ua, 0, 300) . " "; ?>... <a href="view_order.php?od=<?= $second_priority->card_order ?>">(далі)</a></p>
+                                <h1 class="display-6 fw-bolder text-black mb-2">
+                                    <?php
+                                    if (get_user_lang() == "ua") {
+                                        echo $second_priority->name_ua; }
+                                    elseif (get_user_lang() == "en") {
+                                        echo $second_priority->name_en; }
+                                    else {
+                                        echo $second_priority->name_ck;
+                                    }
+                                    ?>
+                                </h1>
+                                <p class="lead fw-normal text-black-50 mb-4">
+                                    <?php
+                                    if (get_user_lang() == "ua") {
+                                        echo mb_substr($second_priority->descr_ua, 0, 300) . " "; }
+                                    elseif (get_user_lang() == "en") {
+                                        echo mb_substr($second_priority->descr_en, 0, 300) . " "; }
+                                    else {
+                                        echo mb_substr($second_priority->descr_ck, 0, 300) . " ";
+                                    }
+                                    ?>
+                                    ... <a href="view_order.php?od=<?= $second_priority->card_order ?>"><?= $lang['main_more']?></a></p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $second_priority->card_order ?>">До заявки</a>
-                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $second_priority->card_order ?>">Задонатити</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $second_priority->card_order ?>"><?= $lang['main_to_order']?></a>
+                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $second_priority->card_order ?>"><?= $lang['donate_btn']?></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-xl-5 col-xxl-6 d-none d-lg-block text-center"><img class="img-fluid shadow rounded-3 my-5 w-75" src="../uploads/<?= $second_priority->pict_src; ?>" alt="..." /></div>
+                        <div class="col-lg-6 col-xl-5 col-xxl-6 d-none d-lg-block text-center"><img class="img-fluid shadow rounded-3 my-5 w-75" src="../uploads/<?= $first_priority->pict_src_ua; ?>" alt="..." /></div>
                     </div>
                 </div>
             </div>
@@ -75,18 +136,48 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             <div class="bg-white bg_flag py-5">
                 <div class="container gradient_box px-5">
                     <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="d-lg-none text-center"><img class="img-fluid shadow rounded-3 mt-5 w-75" src="../uploads/<?= $third_priority->pict_src; ?>" alt="..." /></div>
+                        <div class="d-lg-none text-center"><img class="img-fluid shadow rounded-3 mt-5 w-75" src="../uploads/
+                            <?php
+                            if (get_user_lang() == "ua") {
+                                echo $third_priority->pict_src_ua; }
+                            elseif (get_user_lang() == "en") {
+                                echo $third_priority->pict_src_en; }
+                            else {
+                                echo $third_priority->pict_src_ck;
+                            }
+                            ?>
+                        " alt="..." /></div>
                         <div class="col-sm-12 col-lg-6 col-xl-7 col-xxl-6">
                             <div class="my-5 ms-3 text-xl-start">
-                                <h1 class="display-6 fw-bolder text-black mb-2"><?= $third_priority->name_ua; ?></h1>
-                                <p class="lead fw-normal text-black-50 mb-4"><?= mb_substr($third_priority->descr_ua, 0, 300) . " "; ?>... <a href="view_order.php?od=<?= $third_priority->card_order ?>">(далі)</a></p>
+                                <h1 class="display-6 fw-bolder text-black mb-2">
+                                    <?php
+                                    if (get_user_lang() == "ua") {
+                                        echo $third_priority->name_ua; }
+                                    elseif (get_user_lang() == "en") {
+                                        echo $third_priority->name_en; }
+                                    else {
+                                        echo $third_priority->name_ck;
+                                    }
+                                    ?>
+                                </h1>
+                                <p class="lead fw-normal text-black-50 mb-4">
+                                    <?php
+                                    if (get_user_lang() == "ua") {
+                                        echo mb_substr($third_priority->descr_ua, 0, 300) . " "; }
+                                    elseif (get_user_lang() == "en") {
+                                        echo mb_substr($third_priority->descr_en, 0, 300) . " "; }
+                                    else {
+                                        echo mb_substr($third_priority->descr_ck, 0, 300) . " ";
+                                    }
+                                    ?>
+                                    ... <a href="view_order.php?od=<?= $third_priority->card_order ?>"><?= $lang['main_more']?></a></p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $third_priority->card_order ?>">До заявки</a>
-                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $third_priority->card_order ?>">Задонатити</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $third_priority->card_order ?>"><?= $lang['main_to_order']?></a>
+                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="view_order.php?od=<?= $third_priority->card_order ?>"><?= $lang['donate_btn']?></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-xl-5 col-xxl-6 d-none d-lg-block text-center"><img class="img-fluid shadow rounded-3 my-5 w-75" src="../uploads/<?= $third_priority->pict_src; ?>" alt="..." /></div>
+                        <div class="col-lg-6 col-xl-5 col-xxl-6 d-none d-lg-block text-center"><img class="img-fluid shadow rounded-3 my-5 w-75" src="../uploads/<?= $first_priority->pict_src_ua; ?>" alt="..." /></div>
                     </div>
                 </div>
             </div>
@@ -94,11 +185,11 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Попередній</span>
+        <span class="visually-hidden"><?= $lang['main_prev']?></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Наступний</span>
+        <span class="visually-hidden"><?= $lang['main_next']?></span>
     </button>
 </div>
 
@@ -108,10 +199,10 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xxl-6">
                 <div class="text-center my-5">
-                    <h1 class="fw-bolder mb-3">🇺🇦 All4Ukraine - онлайн платформа для збору коштів на потреби ЗСУ 💙💛</h1>
-                    <p class="lead fw-normal text-muted mb-4">Тут ви можете ознайомитись зі всіма заявками з передової, обрати одну з них і задонатити кошти для пришвидшення її закриття.<p>
-                    <p class="lead fw-normal text-muted mb-4">Прогрес закриття заявки, а також історію донатів (в тому числі ваших) ви зможете відслідковувати на сайті.</p>
-                    <a class="btn btn-primary btn-lg" href="order_list.php">Перейти до заявок</a>
+                    <h1 class="fw-bolder mb-3"><?= $lang['main_online']?></h1>
+                    <p class="lead fw-normal text-muted mb-4"><?= $lang['main_here']?><p>
+                    <p class="lead fw-normal text-muted mb-4"><?= $lang['main_progress']?></p>
+                    <a class="btn btn-primary btn-lg" href="order_list.php"><?= $lang['main_go_to_order']?></a>
                 </div>
             </div>
         </div>
@@ -124,13 +215,13 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-10 col-xl-7">
                 <div class="text-center">
-                    <div class="fs-4 mb-4 fst-italic"><p>"Війна не закінчується, а лише набирає обертів. Тому ми вирішили вивести допомогу нашій країні на новий більш якісний рівень, для чого започаткували благодійну організацію All4Ukraine, яка зможе об‘єднати більше активних і патріотичних людей як в Україні, так і в цілому світі задля досягнення великої мети - перемоги нашого спільного ворога, допомоги всім тим, хто її потребує та наближення справжнього Дня Перемоги 🇺🇦!"</p></div>
+                    <div class="fs-4 mb-4 fst-italic"><p>"<?= $lang['main_quote']?>"</p></div>
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="rounded-circle pic_ceo me-3" src="../pictures/savchenko.jpeg" alt="..." />
                         <div class="fw-bold">
-                            Сергій Савченко
+                            <?= $lang['main_quote_name']?>
                             <span class="fw-bold text-primary mx-1">/</span>
-                            засновник All4Ukraine
+                            <?= $lang['main_quote_founder']?>
                         </div>
                     </div>
                 </div>
@@ -144,8 +235,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
     <div class="container px-5">
         <div class="row">
             <div class="col text-center mt-5 mb-3">
-                <h2>Наші результати</h2>
-                <p>З початку повномасштабного вторгнення ми з вами зробили наступне:</p>
+                <h2><?= $lang['main_our_results']?></h2>
+                <p><?= $lang['main_our_results_2']?></p>
             </div>
         </div>
         <div class="row text-center">
@@ -153,27 +244,27 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-car fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="48" data-speed="1500"></h2>
-                    <p class="count-text ">Закуплених пікапів для ЗСУ</p>
+                    <p class="count-text "><?= $lang['main_our_results_block_1']?></p>
                 </div>
             </div>
             <div class="col">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-file-circle-check fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="218" data-speed="1500"></h2>
-                    <p class="count-text ">Кількість закритих заявок від ЗСУ</p>
+                    <p class="count-text "><?= $lang['main_our_results_block_2']?></p>
                 </div>
             </div>
             <div class="col">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-money-bills fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="<?=(15353560 + $total_amount["SUM(sum)"]); ?>" data-speed="1500"></h2>
-                    <p class="count-text ">Сума (грн) придбаного майна для ЗСУ</p>
+                    <p class="count-text "><?= $lang['main_our_results_block_3']?></p>
                 </div></div>
             <div class="col">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-money-bill fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="<?= $today_amount["SUM(sum)"] ?>" data-speed="1500"></h2>
-                    <p class="count-text ">Зібрано за сьогодні</p>
+                    <p class="count-text "><?= $lang['main_our_results_block_4']?></p>
                 </div>
             </div>
         </div>
@@ -184,28 +275,28 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
 <section class="py-5" id="features">
     <div class="container px-5 my-5">
         <div class="row gx-5">
-            <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Чому нам довіряють:</h2></div>
+            <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0"><?= $lang['main_why_we']?></h2></div>
             <div class="col-lg-8">
                 <div class="row gx-5 row-cols-1 row-cols-md-2">
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="fa-regular fa-building"></i></div>
-                        <h2 class="h5">Зареєстрована організація</h2>
-                        <p class="mb-0">Наша волонтерська організація зареєстрована офіційно. Деталі щодо організації ви можете дізнатись в сервісі відкритих даних українських організацій <a href="https://youcontrol.com.ua/ru/contractor/?id=64719976" target="_blank">YouControl.com.ua</a></p>
+                        <h2 class="h5"><?= $lang['main_why_we_title_1']?></h2>
+                        <p class="mb-0"><?= $lang['main_why_we_content_1']?><a href="https://youcontrol.com.ua/ru/contractor/?id=64719976" target="_blank">YouControl.com.ua</a></p>
                     </div>
                     <div class="col mb-5 h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="fa-solid fa-people-group"></i></div>
-                        <h2 class="h5">Реальні люди</h2>
-                        <p class="mb-0">Засновник фонду - власник найвідомішої фабрики м`яких меблів в Україні Сергій Савченко. Також ми залишаємо контакти всіх членів нашої команди. Ви можете зв`язатиз з будь-ким з нас для того, щоб впевнетись що ми не шахраї</p>
+                        <h2 class="h5"><?= $lang['main_why_we_title_2']?></h2>
+                        <p class="mb-0"><?= $lang['main_why_we_content_2']?></p>
                     </div>
                     <div class="col h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="fa-solid fa-globe"></i></div>
-                        <h2 class="h5">Відслідковування зборів он-лайн</h2>
-                        <p class="mb-0">Вся інформація по заявкам та зібраним коштам ведеться он-лайн. Відразу після донату, ви побачите своє ім`я та перераховану Вами суму на даному сайті. Вся історія по зібраним коштам - залишається на сайті</p>
+                        <h2 class="h5"><?= $lang['main_why_we_title_3']?></h2>
+                        <p class="mb-0"><?= $lang['main_why_we_content_3']?></p>
                     </div>
                     <div class="col h-100">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="fa-regular fa-comments"></i></div>
-                        <h2 class="h5">Принцип відкритості</h2>
-                        <p class="mb-0">Ми публікуємо всі наші досягнення на фейсбук сторінці та у розділі новин на сайті. Ми відкриті до спілкування. Ви можете задати нам будь-які питання просто зв`язавшись з нами по телефону: <a href="tel:+0979563613">(097)&nbsp956&nbsp36&nbsp13</a></p>
+                        <h2 class="h5"><?= $lang['main_why_we_title_4']?></h2>
+                        <p class="mb-0"><?= $lang['main_why_we_content_4']?><a href="tel:+0979563613">(097)&nbsp956&nbsp36&nbsp13</a></p>
                     </div>
                 </div>
             </div>
@@ -221,8 +312,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
-                    <h2 class="fw-bolder">Останні новини</h2>
-                    <p class="lead fw-normal text-muted mb-5">Долучайтесь до нашої <a href="https://www.facebook.com/all4ukraineua"><i class="fa-brands fa-facebook"></i> фейсбук сторінки</a>, щоб бути в курсі останніх новин волонтерського фонду</p>
+                    <h2 class="fw-bolder"><?= $lang['main_news_title']?></h2>
+                    <p class="lead fw-normal text-muted mb-5"><?= $lang['main_news_content_1']?><a href="https://www.facebook.com/all4ukraineua"><i class="fa-brands fa-facebook"></i><?= $lang['main_news_content_2']?></a><?= $lang['main_news_content_3']?></p>
                 </div>
             </div>
         </div>
@@ -241,7 +332,7 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
                                 ?>
                             </div>
                             <a class="order_link_nostyle" href="view_news.php?id=<?= $row->news_id ?>"><h5 class="card-title mb-3"><?= $row->name_ua ?></h5></a>
-                            <p class="card-text mb-0"><?= mb_substr($row->descr_ua, 0, 200) . " "  ?> <a href="view_news.php?id=<?= $row->news_id ?>">(далі)</a></p>
+                            <p class="card-text mb-0"><?= mb_substr($row->descr_ua, 0, 200) . " "  ?> <a href="view_news.php?id=<?= $row->news_id ?>"><?= $lang['main_more']?></a></p>
                         </div>
                         <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                             <div class="d-flex align-items-end justify-content-between">
@@ -257,7 +348,7 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             <?php } ?>
             <div class="text-end mb-xl-0">
                 <a class="text-decoration-none" href="news.php">
-                    Більше новин
+                    <?= $lang['main_more_news']?>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
@@ -288,9 +379,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-8 col-xl-6">
                 <div class="text-center">
-                    <h2 class="fw-bolder">Наша команда</h2>
-                    <p class="lead fw-normal text-muted mb-5">Ми – команда однодумців, яка не може бути осторонь війни в нашій країні.
-                        Ми різні за профілем та напрямком діяльності, але рівні за бажанням Перемоги у боротьбі за свободу та незалежність.
+                    <h2 class="fw-bolder"><?= $lang['main_our_team_title']?></h2>
+                    <p class="lead fw-normal text-muted mb-5"><?= $lang['main_our_team_content']?>
                     </p>
                 </div>
             </div>
@@ -307,8 +397,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Сергій та Тетяна Савченко</b></p>
-                <p>В житті до війни: підприємці</p>
+                <p><b><?= $lang['main_our_team_savchenko']?></b></p>
+                <p><?= $lang['main_our_team_savchenko_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -320,8 +410,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Ольга Сачук</b></p>
-                <p>В житті до війни: директор з персоналу</p>
+                <p><b><?= $lang['main_our_team_sachuk']?></b></p>
+                <p><?= $lang['main_our_team_sachuk_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -333,8 +423,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Валентина Міхова</b></p>
-                <p>В житті до війни: бізнес-тренер</p>
+                <p><b><?= $lang['main_our_team_mihova']?></b></p>
+                <p><?= $lang['main_our_team_mihova_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -346,8 +436,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Вікторія Семенець</b></p>
-                <p>В житті до війни: експорт-менеджер</p>
+                <p><b><?= $lang['main_our_team_semenets']?></b></p>
+                <p><?= $lang['main_our_team_semenets_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -359,8 +449,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Орина Легащова</b></p>
-                <p>В житті до війни: журналіст</p>
+                <p><b><?= $lang['main_our_team_oryna']?></b></p>
+                <p><?= $lang['main_our_team_oryna_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -372,8 +462,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Сергій Передерій</b></p>
-                <p>В житті до війни: маркетолог</p>
+                <p><b><?= $lang['main_our_team_perederiy']?></b></p>
+                <p><?= $lang['main_our_team_perederiy_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -385,8 +475,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Ростистлав Шоломок</b></p>
-                <p>В житті до війни: маркетолог</p>
+                <p><b><?= $lang['main_our_team_sholomok']?></b></p>
+                <p><?= $lang['main_our_team_sholomok_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -398,8 +488,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Сергій Бачеріков</b></p>
-                <p>В житті до війни: адміністратор сайтів</p>
+                <p><b><?= $lang['main_our_team_basherikov']?></b></p>
+                <p><?= $lang['main_our_team_basherikov_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -411,8 +501,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Олександр Рибчинський</b></p>
-                <p>В житті до війни: директор ІТ компанії</p>
+                <p><b><?= $lang['main_our_team_rybchik']?></b></p>
+                <p><?= $lang['main_our_team_rybchik_before']?></p>
             </div>
         </div>
         <div class="item card px-0 shadow border-0 mx-2 mb-4" style="width: 18rem;">
@@ -424,8 +514,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
             <div class="card-body">
                 <p class="card-text">
-                <p><b>Ярослав Костюк</b></p>
-                <p>В житті до війни: менеджер з розвитку бізнесу, фармацевтична галузь</p>
+                <p><b><?= $lang['main_our_team_kosjuk']?></b></p>
+                <p><?= $lang['main_our_team_kosjuk_before']?></p>
             </div>
         </div>
     </div>
@@ -433,8 +523,8 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
 
 <section class="py-5 bg-light">
     <div class="container px-5 my-5">
-        <h2 class="display-4 fw-bolder mb-4">Переможемо разом!</h2>
-        <a class="btn btn-lg btn-primary" href="contacts.php">Зв`яжіться з нами</a>
+        <h2 class="display-4 fw-bolder mb-4"><?= $lang['main_lets_win']?></h2>
+        <a class="btn btn-lg btn-primary" href="contacts.php"><?= $lang['main_call_us']?></a>
     </div>
 </section>
 

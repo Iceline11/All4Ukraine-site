@@ -24,15 +24,46 @@ $descr_ck = htmlspecialchars($_POST['descr_ck']);
 
 
 // if we have new picture
-if($_FILES["fileToUpload"]["name"] !== "") {
+//if($_FILES["fileToUpload"]["name"] !== "") {
+//
+//    include "pic_upload_ua.php";
+//    $new_picture = basename($_FILES["fileToUpload"]["name"]);
+//    $pict_src = "`pict_src` = '$new_picture', ";
+//}
+//else {
+//    $pict_src = NULL;
+//}
 
-    include "pic_upload.php";
-    $new_picture = basename($_FILES["fileToUpload"]["name"]);
-    $pict_src = "`pict_src` = '$new_picture', ";
+// check pictures for ua
+if ($_FILES["fileToUpload_ua"]["name"] !== "") {
+    $pict_ua = basename($_FILES["fileToUpload_ua"]["name"]);
+    include "pic_upload_ua.php";
+    $pict_src_ua = "`pict_src_ua` = '$pict_ua', ";
 }
 else {
-    $pict_src = NULL;
+    $pict_src_ua = NULL;
 }
+
+// check pictures for en
+if ($_FILES["fileToUpload_en"]["name"] !== "") {
+    $pict_en = basename($_FILES["fileToUpload_en"]["name"]);
+    include "pic_upload_en.php";
+    $pict_src_en = "`pict_src_en` = '$pict_en', ";
+}
+else {
+    $pict_src_en = NULL;
+}
+
+// check pictures for sk
+if ($_FILES["fileToUpload_sk"]["name"] !== "") {
+    $pict_sk = basename($_FILES["fileToUpload_sk"]["name"]);
+    include "pic_upload_sk.php";
+    $pict_src_sk = "`pict_src_sk` = '$pict_sk', ";
+}
+else {
+    $pict_src_sk = NULL;
+}
+
 
 //insert into DB
 $sql_edit_order = "UPDATE `orders` SET
@@ -42,7 +73,9 @@ $sql_edit_order = "UPDATE `orders` SET
                       `date` = '$date',
                       `goal` = '$goal', 
                       `start_sum` = '$start_sum',
-                    " . $pict_src . "
+                    " . $pict_src_ua . "
+                    " . $pict_src_en . "
+                    " . $pict_src_sk . "
                       `descr_ua` = '$descr_ua', 
                       `descr_en` = '$descr_en', 
                       `descr_ck` = '$descr_ck', 
@@ -51,7 +84,7 @@ $sql_edit_order = "UPDATE `orders` SET
 
 $count = $pdo->query($sql_edit_order);
 if ($count==true) {
-    echo "<br> Заявка успішно додана";
+    echo "<br> Заявка успішно змінена";
 }
 else {
     echo "Щось пішло не так";

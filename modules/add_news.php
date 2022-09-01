@@ -4,7 +4,7 @@ include '../view/header.php'; // add header
 include '../view/menu.php'; // add menu
 
 include "../dbconnect/dbconnect.php";
-include "pic_upload.php";
+include "pic_upload_ua.php";
 
 $name_ua = htmlspecialchars($_POST['name_ua']);
 $name_en = htmlspecialchars($_POST['name_en']);

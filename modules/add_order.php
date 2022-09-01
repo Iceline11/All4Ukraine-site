@@ -4,7 +4,6 @@ include '../view/header.php'; // add header
 include '../view/menu.php'; // add menu
 
 include "../dbconnect/dbconnect.php";
-include "pic_upload.php";
 
 $name_ua = htmlspecialchars($_POST['name_ua']);
 $name_en = htmlspecialchars($_POST['name_en']);
@@ -12,10 +11,32 @@ $name_sk = htmlspecialchars($_POST['name_sk']);
 $date = htmlspecialchars($_POST['date']);
 $goal = htmlspecialchars($_POST['goal']);
 $start_sum = htmlspecialchars($_POST['start_sum']);
-$pict_src = basename($_FILES["fileToUpload"]["name"]);
+$pict_src_ua = basename($_FILES["fileToUpload_ua"]["name"]);
+
+// check pictures for en
+if ($_FILES["fileToUpload_en"]["name"] !== "") {
+    $pict_src_en = basename($_FILES["fileToUpload_en"]["name"]);
+    include "pic_upload_en.php";
+}
+else {
+    $pict_src_en = NULL;
+}
+
+// check pictures for sk
+if ($_FILES["fileToUpload_sk"]["name"] !== "") {
+    $pict_src_sk = basename($_FILES["fileToUpload_sk"]["name"]);
+    include "pic_upload_sk.php";
+}
+else {
+    $pict_src_sk = NULL;
+}
+
 $descr_ua = htmlspecialchars($_POST['descr_ua']);
 $descr_en = htmlspecialchars($_POST['descr_en']);
 $descr_ck = htmlspecialchars($_POST['descr_ck']);
+
+
+include "pic_upload_ua.php";
 
 // Define max order
 $sql_max_order = $pdo->query('SELECT MAX(card_order) FROM orders');
@@ -32,7 +53,9 @@ $sql_new_order = "INSERT INTO `orders` (
                       `date`, 
                       `goal`, 
                       `start_sum`, 
-                      `pict_src`, 
+                      `pict_src_ua`, 
+                      `pict_src_en`, 
+                      `pict_src_sk`, 
                       `descr_ua`, 
                       `descr_en`, 
                       `descr_ck`, 
@@ -46,7 +69,9 @@ $sql_new_order = "INSERT INTO `orders` (
                       '$date', 
                       '$goal', 
                       '$start_sum', 
-                      '$pict_src', 
+                      '$pict_src_ua', 
+                      '$pict_src_en', 
+                      '$pict_src_sk', 
                       '$descr_ua', 
                       '$descr_en', 
                       '$descr_ck', 

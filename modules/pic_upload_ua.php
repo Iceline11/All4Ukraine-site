@@ -1,12 +1,12 @@
 <?php
 $target_dir = "../uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = $target_dir . basename($_FILES["fileToUpload_ua"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // is image real
 if(isset($_POST["add"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    $check = getimagesize($_FILES["fileToUpload_ua"]["tmp_name"]);
     if($check !== false) {
         echo "Зоображення реальне - " . $check["mime"] . ".<br>";
         $uploadOk = 1;
@@ -23,7 +23,7 @@ if (file_exists($target_file)) {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 99500000) {
+if ($_FILES["fileToUpload_ua"]["size"] > 99500000) {
     echo "Файл завеликий.<br>";
     $uploadOk = 0;
 }
@@ -40,8 +40,8 @@ if ($uploadOk == 0) {
     echo "Файл не був завантажений<br>";
 // если все в порядке, поробуем загрузить файл
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "Файл ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])).
+    if (move_uploaded_file($_FILES["fileToUpload_ua"]["tmp_name"], $target_file)) {
+        echo "Файл ". htmlspecialchars( basename( $_FILES["fileToUpload_ua"]["name"])).
             " був завантажений";
     } else {
         echo "Нажаль, при завантаженні фото виникла помилка<br>";
