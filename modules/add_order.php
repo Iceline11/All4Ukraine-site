@@ -31,7 +31,7 @@ else {
     $pict_src_sk = NULL;
 }
 
-$descr_ua = htmlspecialchars($_POST['descr_ua']);
+$descr_ua = $_POST['descr_ua'];
 $descr_en = htmlspecialchars($_POST['descr_en']);
 $descr_ck = htmlspecialchars($_POST['descr_ck']);
 

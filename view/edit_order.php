@@ -1,7 +1,7 @@
 <?php
 include 'header.php'; // add header
 include 'menu.php'; // add menu
-include "../dbconnect/dbconnect.php";
+
 $order_id = $_GET['id'];
 $sql_order_edit = "SELECT * FROM `orders` WHERE order_id = '$order_id'";
 

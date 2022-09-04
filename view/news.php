@@ -3,21 +3,8 @@ include 'header.php'; // add header
 $menuitem = "news"; // active page
 include 'menu.php'; // add menu
 
-// check admin rules
-if (isset($_COOKIE["login"])) {
-    $log = true;
-}
-else $log = false;
-
-if (isset($_COOKIE["password"])) {
-    $pas = true;
-}
-else $pas = false;
-
-include "../dbconnect/dbconnect.php";
 
 // Select news
-
 if (isset($_GET['cat'])) {
     $cat = $_GET['cat'];
     $sql_select_news = $pdo->query("SELECT * FROM `news` WHERE category = '$cat' ORDER BY date DESC");
@@ -51,6 +38,15 @@ else
     <?php while ($row = $sql_select_news->fetch(PDO::FETCH_OBJ)) { // start while ?>
         <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
             <div class="card h-100 shadow border-0">
+                <?php if ($log == true and $pas == true) {
+                    echo '<div class="position-absolute ms-1 mt-1">
+                            <a type="button" href="edit_news.php?id=' . $row->news_id . '"
+                               class="btn btn-sm btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a type="button" href="../modules/delete_news.php?id=' . $row->news_id . '"
+                               class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                           </div>';
+                }
+                ?>
                 <img class="card-img-top" src="../uploads/<?= $row->pict_src ?>" alt="..." />
                 <div class="card-body p-4">
                     <div class="badge bg-primary bg-gradient rounded-pill mb-2">

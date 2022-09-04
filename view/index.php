@@ -3,8 +3,6 @@
 include '../view/header.php'; // add header
 include '../view/menu.php'; // add menu
 
-include "../dbconnect/dbconnect.php";
-
 // select priorities
 $maxsql = $pdo->query('SELECT MAX(card_order) FROM orders')->fetch(PDO::FETCH_ASSOC);
 $max = $maxsql["MAX(card_order)"];
@@ -23,6 +21,12 @@ date_default_timezone_set('Europe/Kiev');
 $today = date('Y-m-d');
 $tomorow = date('Y-m-d',strtotime($today . "+1 days"));
 $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '$today' AND date < '$tomorow'")->fetch(PDO::FETCH_ASSOC);
+
+// popups
+$info = isset($_GET['info']) ? $_GET['info'] : "";
+if ($info == "exit") {
+    require 'info_exit.html';
+}
 ?>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -63,11 +67,11 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
                                 <p class="lead fw-normal text-black-50 mb-4">
                                     <?php
                                     if (get_user_lang() == "ua") {
-                                        echo mb_substr($first_priority->descr_ua, 0, 300) . " "; }
+                                        echo mb_substr($first_priority->descr_ua, 0, 150) . " "; }
                                     elseif (get_user_lang() == "en") {
-                                        echo mb_substr($first_priority->descr_en, 0, 300) . " "; }
+                                        echo mb_substr($first_priority->descr_en, 0, 150) . " "; }
                                     else {
-                                        echo mb_substr($first_priority->descr_ck, 0, 300) . " ";
+                                        echo mb_substr($first_priority->descr_ck, 0, 150) . " ";
                                     }
                                     ?>
                                 ... <a href="view_order.php?od=<?= $first_priority->card_order ?>"><?= $lang['main_more']?></a></p>
@@ -113,11 +117,11 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
                                 <p class="lead fw-normal text-black-50 mb-4">
                                     <?php
                                     if (get_user_lang() == "ua") {
-                                        echo mb_substr($second_priority->descr_ua, 0, 300) . " "; }
+                                        echo mb_substr($second_priority->descr_ua, 0, 150) . " "; }
                                     elseif (get_user_lang() == "en") {
-                                        echo mb_substr($second_priority->descr_en, 0, 300) . " "; }
+                                        echo mb_substr($second_priority->descr_en, 0, 150) . " "; }
                                     else {
-                                        echo mb_substr($second_priority->descr_ck, 0, 300) . " ";
+                                        echo mb_substr($second_priority->descr_ck, 0, 150) . " ";
                                     }
                                     ?>
                                     ... <a href="view_order.php?od=<?= $second_priority->card_order ?>"><?= $lang['main_more']?></a></p>
@@ -163,11 +167,11 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
                                 <p class="lead fw-normal text-black-50 mb-4">
                                     <?php
                                     if (get_user_lang() == "ua") {
-                                        echo mb_substr($third_priority->descr_ua, 0, 300) . " "; }
+                                        echo mb_substr($third_priority->descr_ua, 0, 150) . " "; }
                                     elseif (get_user_lang() == "en") {
-                                        echo mb_substr($third_priority->descr_en, 0, 300) . " "; }
+                                        echo mb_substr($third_priority->descr_en, 0, 150) . " "; }
                                     else {
-                                        echo mb_substr($third_priority->descr_ck, 0, 300) . " ";
+                                        echo mb_substr($third_priority->descr_ck, 0, 150) . " ";
                                     }
                                     ?>
                                     ... <a href="view_order.php?od=<?= $third_priority->card_order ?>"><?= $lang['main_more']?></a></p>
@@ -240,27 +244,27 @@ $today_amount = $pdo->query("SELECT SUM(sum) FROM `donate_list` WHERE  date >= '
             </div>
         </div>
         <div class="row text-center">
-            <div class="col">
+            <div class="col-sm-6 my-3">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-car fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="48" data-speed="1500"></h2>
                     <p class="count-text "><?= $lang['main_our_results_block_1']?></p>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-6 my-3">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-file-circle-check fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="218" data-speed="1500"></h2>
                     <p class="count-text "><?= $lang['main_our_results_block_2']?></p>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-sm-6 my-3">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-money-bills fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="<?=(15353560 + $total_amount["SUM(sum)"]); ?>" data-speed="1500"></h2>
                     <p class="count-text "><?= $lang['main_our_results_block_3']?></p>
                 </div></div>
-            <div class="col">
+            <div class="col-sm-6 my-3">
                 <div class="counter shadow border-0">
                     <i class="fa-solid fa-money-bill fa-2xl mb-2"></i>
                     <h2 class="timer count-title count-number" data-to="<?= $today_amount["SUM(sum)"] ?>" data-speed="1500"></h2>

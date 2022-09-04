@@ -3,8 +3,6 @@ include '../view/header.php'; // add header
 $menuitem = "report"; // active page
 include '../view/menu.php'; // add menu
 
-include "../dbconnect/dbconnect.php";
-
 // show item by id
 $id = $_GET['id'];
 $sql_item_edit = $pdo->query("SELECT * FROM `spend_list` WHERE id = '$id'")->fetch(PDO::FETCH_ASSOC);

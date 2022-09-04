@@ -52,6 +52,7 @@
         <div class="row g-3 mt-1">
             <div>
                 <label for="exampleFormControlTextarea1" class="form-label">Опис (укр)</label>
+                <div id="summernote" name="descr_ua"></div>
                 <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_ua" rows="5" required></textarea>
             </div>
         </div>
@@ -73,7 +74,7 @@
     </form>
 </div>
 
-
+<script src="../js/summernote_params.js"></script>
 <?php
     include 'footer.php'; // add footer
 ?>

@@ -3,8 +3,6 @@ include '../view/header.php'; // add header
 $menuitem = "news"; // active page
 include '../view/menu.php'; // add menu
 
-include "../dbconnect/dbconnect.php";
-
 $news_id = $_GET['id'];
 
 // SQL select this news
@@ -70,7 +68,7 @@ $this_news = $pdo->query("SELECT * FROM `news` WHERE news_id = '$news_id'")->fet
                     <figure class="mb-4"><img class="img-fluid rounded" src="../uploads/<?=$this_news->pict_src; ?>" alt="..." /></figure>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p class="fs-5 mb-4">
+                        <p class="fs-6 mb-4">
                             <?php
                             if (get_user_lang() == "ua") {
                                 echo $this_news->descr_ua; }
@@ -84,6 +82,9 @@ $this_news = $pdo->query("SELECT * FROM `news` WHERE news_id = '$news_id'")->fet
                     </section>
                 </article>
             </div>
+        </div>
+        <div class="row text-center mb-3">
+            <a href="order_list.php"><button class="btn btn-warning btn-lg px-4 me-sm-3"><?= $lang['goto_btn']?></button></a>
         </div>
     </div>
 </section>

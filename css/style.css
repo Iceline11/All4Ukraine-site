@@ -2,6 +2,13 @@ html {
     font-size: 16px;
 }
 
+.navbar {
+    Position: sticky;
+    top: 0;
+    z-index: 4;
+    width: 100%;
+}
+
 .text-yellow {
     color: #fde910;
 }
@@ -10,12 +17,16 @@ html {
     color: yellow;
 }
 
+.text-blue {
+    color: #0d6efd;
+}
+
 .order_card {
     display: flex;
     justify-content: start;
     align-items: center;
     position: relative;
-    margin: 0rem 7rem;
+    margin: 0px 5%;
 }
 
 @media screen and (max-width: 992px) {
@@ -151,6 +162,7 @@ html {
 .info_on_top {
     position: absolute;
     right:5%;
+    z-index: 6;
 }
 
 .orders_numbers {
@@ -393,4 +405,12 @@ html {
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
 
+}
+
+.buttons-cadrs {
+    color: orange;
+    border: 1px solid #ffc107;
+    border-radius: 3px;
+    padding: 5px;
+    margin: 5px 10px 5px 5px ;
 }

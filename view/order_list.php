@@ -3,17 +3,6 @@ include 'header.php'; // add header
 $menuitem = "orders"; // active page
 include 'menu.php'; // add menu
 
-// check admin rules
-if (isset($_COOKIE["login"])) {
-    $log = true;
-}
-else $log = false;
-
-if (isset($_COOKIE["password"])) {
-    $pas = true;
-}
-else $pas = false;
-
 // SELECT ORDERS
 if ($log == true and $pas == true) {
     include '../modules/select_orders_admin.php';
@@ -24,17 +13,17 @@ if ($log == true and $pas == true) {
 // popups
 $info = isset($_GET['info']) ? $_GET['info'] : "";
 if ($info == "success") {
-    require_once 'view/info_success.html';
+    require_once '../view/info_success.html';
 } elseif ($info == "first") {
-    require_once 'view/info_first.html';
+    require_once '../view/info_first.html';
 } elseif ($info == "last") {
-    require_once 'view/info_last.html';
+    require_once '../view/info_last.html';
 }
 
 ?>
 
     <div class="container">
-        <div class="row my-3 ">
+        <div class="row my-3">
             <div class="d-flex align-items-center">
                 <div class="col-md-3 col-lg-4 col-md-4 d-none d-md-block">
                     <img src="../pictures/pickup1.png" class="img-fluid rounded-start" alt="...">
@@ -42,7 +31,7 @@ if ($info == "success") {
                 <div class="col-sm-6 col-md-5 col-lg-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title"><?= $lang['free_balance_name']?></h4>
+                            <a href="view_order.php" class="order_link_nostyle"><h4 class="card-title"><?= $lang['free_balance_name']?></h4></a>
                             <div class="text-center text-red mb-2">
                                 <span class="order_collect_text">₴ 12742</span>
                             </div>
@@ -98,10 +87,14 @@ if ($info == "success") {
                 <div class="col-md-8 col-sm-8 order_subscr">
                     <?php if ($log == true and $pas == true) {?>
                         <div class="admin_buttons">
-                            <a type="button" href="../modules/move_up.php?id=<?= $row->order_id ?>"
+                            <?php
+                            if($row->status == 1) {
+                                echo '<a type="button" href="../modules/move_up.php?id=' . $row->order_id . '"
                                class="btn btn-sm btn-info"><i class="fa-solid fa-arrow-up"></i></a>
-                            <a type="button" href="../modules/move_down.php?id=<?= $row->order_id ?>"
-                               class="btn btn-sm btn-info"><i class="fa-solid fa-arrow-down"></i></a>
+                            <a type="button" href="../modules/move_down.php?id=' . $row->order_id . '"
+                               class="btn btn-sm btn-info"><i class="fa-solid fa-arrow-down"></i></a>';
+                            }
+                            ?>
                             <a type="button" class="btn btn-sm btn-success dropdown-toggle"  id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-eye"></i></a>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="../modules/change_status.php?id=<?= $row->order_id ?>&but=active">Активна</a></li>
@@ -192,5 +185,5 @@ include 'donate.php'; // popup with goal
 <script src="../js/data_sum_goal.js"></script>
 <script src="../js/data_donate.js"></script>
 <?php
-include 'footer.php'; // add footer
+include '../view/footer.php'; // add footer
 ?>

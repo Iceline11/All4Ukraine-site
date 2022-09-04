@@ -1,7 +1,7 @@
 <?php
 include 'header.php'; // add header
 include 'menu.php'; // add menu
-include "../dbconnect/dbconnect.php"; // DB connect
+
 $id = $_GET['id'];
 
 $sql_news_edit = $pdo->query("SELECT * FROM `news` WHERE news_id = '$id'")->fetch(PDO::FETCH_ASSOC);
@@ -65,7 +65,7 @@ $sql_news_edit = $pdo->query("SELECT * FROM `news` WHERE news_id = '$id'")->fetc
                 <textarea type="text" class="form-control" id="exampleFormControlTextarea1" name="descr_sk" rows="5"><?=$sql_news_edit['descr_sk']?></textarea>
             </div>
         </div>
-        <div class="row g-3 mt-1">
+        <div class="row g-3 mt-1 mb-3">
             <button type="submit" class="btn btn-success" name="add">Змінити</button>
         </div>
     </form>

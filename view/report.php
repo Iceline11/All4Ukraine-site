@@ -3,19 +3,6 @@ include '../view/header.php'; // add header
 $menuitem = "report"; // active page
 include '../view/menu.php'; // add menu
 
-include "../dbconnect/dbconnect.php";
-
-// check admin rules
-if (isset($_COOKIE["login"])) {
-    $log = true;
-}
-else $log = false;
-
-if (isset($_COOKIE["password"])) {
-    $pas = true;
-}
-else $pas = false;
-
 // Info for profit
 $sql_donater_list = $pdo->query("SELECT * FROM `donate_list`");
 
